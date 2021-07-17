@@ -6,12 +6,66 @@
     padding: 0;
 }
 
+@font-face{
+    font-family: WinterSunday;
+    src: url(../assets/fonts/WinterSunday.otf);
+}
+
 .main-header{
     justify-content: space-between;
     background-color: #fff;
     display: flex;
     height: 105px;
     width: 100%;
+
+    .wrapper-login{
+        border-radius: 40px;
+        background-color: #DB00FF;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center;
+
+        >img{
+            position: absolute;
+            right: 0px;
+            z-index: 0;
+        }
+
+        >a{
+            color: #fff;
+            line-height: 24,19px;
+            font-family: 'Viga', Arial, Helvetica, sans-serif;
+            font-size: 38px;
+        }
+    }
+
+    .main-action{
+        padding-top: 25px;
+        display: inline-flex;
+        align-items: center;
+        padding-right: 61px;
+        padding-left: 61px;
+        font-size: 2.5rem;
+        font-family: WinterSunday;
+        color: #7C3267;
+        text-decoration: none;
+    }
+
+    .main-action.-second{
+        padding-top: 0px;
+        padding-right: 99px;
+        padding-left: 15px;
+    }
+
+    .main-action.-third{
+        padding-top: 0px;
+        padding-right: 99px;
+        padding-left: 15px;
+        font-size: 18px;
+    }
+
 
     .nav{
         display: flex;
@@ -52,6 +106,24 @@
 
 
     @media (min-width:320px) and (max-width: 800px) { 
+
+        .main-action{
+            display: none;
+        }
+
+        .wrapper-login{
+            background-color: white;
+
+            >img{
+                position: relative;
+            }
+
+            >a{
+                display: none;
+            }
+        }
+
+        
 
         .logomin{
             display: block;
@@ -132,6 +204,22 @@
     
         .menu-hidde{
             display: none;
+        }
+
+        .main-action{
+            padding-right: 14px;
+            padding-left: 14px;
+            display: block;
+        }
+    }
+
+
+    
+    @media (min-width:1025px){
+        .main-action{
+            padding-right: 30px;
+            padding-left: 30px;
+            display: block;
         }
     }
 

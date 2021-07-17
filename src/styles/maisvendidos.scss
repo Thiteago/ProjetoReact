@@ -1,0 +1,142 @@
+.main-topseller{
+    text-align: center;
+    background-image: linear-gradient(to bottom, #b6a3f5, #c8baf9, #d9d1fb, #ece8fe, #ffffff);
+    height: 100%;
+
+    >h1{
+        padding-top: 35px;
+    }
+   
+    .main-title{
+        font-family: WinterSunday;
+        font-size: 92px;
+        color: #F4D6F1;
+        text-shadow: -1px 3px 0px #FF005C;
+    }
+
+    .wrapper-maisvendidos{
+        display: flex;
+        justify-content: center;
+
+        .produto{
+            width: 380px;
+            height: 280px;
+            background-color: white;
+            margin-bottom: 33px;
+
+            >p{
+                font-family: 'Viga', Arial, Helvetica, sans-serif;
+                position: relative;
+                color: white;
+                text-shadow: 1px 1px 2px #000;
+                top: 285px;
+            }
+        }
+
+        .produto:nth-child(even){
+            margin: 0px 20px 0 20px;
+        }
+
+        
+    }
+
+    @media (min-width: 320px) and (max-width: 599px){
+        
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 70px;
+
+        .wrapper-maisvendidos{
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+
+            .produto{
+                width: 250px;
+                height: 250px;
+
+                >p{
+                    top: 255px;
+                }
+            }
+
+            .produto:nth-child(even){
+                margin: 0 0 33px 0;
+            }
+        }   
+    }
+    
+    @media (min-width: 480px) and (max-width: 599px){
+        .wrapper-maisvendidos{
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+
+            .produto{
+                width: 300px;
+                height: 300px;
+
+                >p{
+                    top: 305px;
+                }
+            }
+
+            .produto:nth-child(even){
+                margin: 0 0 33px 0;
+            }
+        }
+    }
+    
+    @media (min-width: 600px) and (max-width: 800px){
+        .wrapper-maisvendidos{
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+
+            .produto{
+                width: 410px;
+                height: 410px;
+
+                >p{
+                    top: 415px;
+                }
+            }
+
+            .produto:nth-child(even){
+                margin: 0 0 33px 0;
+            }
+        }
+    }
+
+    @media (min-width: 801px) and (max-width: 1024px){
+        
+        height: 515px;
+        margin-bottom: -1px;
+
+        .wrapper-maisvendidos .produto{
+            width: 240px;
+            height: 240px;
+
+            >p{
+                top:255px;
+            }
+        }   
+    }
+    
+    @media (min-width: 1025px) and (max-width: 1280px){
+        
+        height: 565px;
+
+        .wrapper-maisvendidos .produto{
+            width: 315px;
+        }
+    }
+    
+    @media(min-width: 1281px){
+        
+        padding-bottom: 50px;
+        margin-bottom: -1px;
+        
+    }
+}
+

@@ -1,10 +1,13 @@
 import { Header } from "../components/Header";
+import {Slide} from '../components/Slide';
+import { MaisVendidos } from "../components/MaisVendidos";
 
 export function Home(){
-    console.log('Oi Mundo');
     return(
         <div>
             <Header></Header>
+            <Slide></Slide>
+            <MaisVendidos></MaisVendidos>
         </div>
         
     )

@@ -1,11 +1,13 @@
 import '../styles/header.scss'
-import logo from '../assets/img/logomin.jpg'
+import logoMin from '../assets/img/logomin.jpg'
+import logo from '../assets/img/logo-clau.png'
+import avatar from '../assets/img/avatar-login.png'
 
 export function Header(){
     return(
         <header className="main-header">
-            <img src={logo} alt="logo clau min" className="logomin"/>
-            <img src="../assets/img/logo-clau.png" alt="logo clau prado" height="244" width="230" className="logobig"/>
+            <img src={logoMin} alt="logo clau min" className="logomin"/>
+            <img src={logo} alt="logo clau prado" height="244" width="230" className="logobig"/>
             <nav className="nav">
                 <a className="main-action" href="#">Inicio</a>
                 <a className="main-action" href="produtos.html">Produtos</a>
@@ -27,8 +29,8 @@ export function Header(){
             </nav>
             <div className="wrapper-login">
                 <a className="main-action -second" href="login.html">Login</a>
-                <a className="main-action -second" href="#">ou Cadastre-se</a>
-                <img src="assets/img/avatar-login.png" alt="imagem para cadastro" height="105" className="img_avatar"/>
+                <a className="main-action -third" href="#">ou Cadastre-se</a>
+                <img src={avatar} alt="imagem para cadastro" height="105" className="img_avatar"/>
             </div>
         </header>
     );
