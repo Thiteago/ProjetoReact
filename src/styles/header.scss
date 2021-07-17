@@ -1,0 +1,172 @@
+*{
+    box-sizing: border-box;
+    text-decoration: none !important;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.main-header{
+    justify-content: space-between;
+    background-color: #fff;
+    display: flex;
+    height: 105px;
+    width: 100%;
+
+    .nav{
+        display: flex;
+        flex-wrap: wrap;
+        padding-left: 0;
+        margin-bottom: 0;
+        list-style: none;
+        align-items: flex-start;
+    }
+
+    .nav a{
+        transition: all 0.3s;
+    }
+
+    .nav a:hover{
+        font-size: 3.6em;
+        color: #7C3267;
+    }
+
+    .logomin{
+        display:none;
+    }
+
+    .logobig{
+        display: block;
+    }
+
+    .arrow{
+        transform: rotate(180deg);
+        align-self: flex-start;
+        margin-top: 20px;
+        margin-left: 20px;
+    }
+
+    #menu-trigger{
+        display: none;
+    }
+
+
+    @media (min-width:320px) and (max-width: 800px) { 
+
+        .logomin{
+            display: block;
+        } 
+    
+        .logobig{
+            display: none;
+        }
+    
+        #menu-trigger {
+            display: block;
+            width: 30px;
+            height: 20px;
+            position: absolute;
+            top: 40px;
+            margin-right: 20px;
+            right: 0;
+            cursor: pointer;
+            z-index: 3001;
+        }
+            
+        .menu-trigger div {
+            width: 30px;
+            height: 4px;
+            background: black none repeat scroll 0% 0%;
+            margin-top: 3px;
+        }
+    
+        .menu-hidde {
+            display: none;
+            text-decoration: none;
+            background: white none repeat scroll 0% 0%;
+            width: 185px;
+            height: 80%;
+            position: absolute; /*necessária para o funcionamento*/
+            box-shadow: -5px 11px 21px gray;
+            right: -100%;  /*é com essa propriedade que o menu fica escondido a direita*/
+            transition: right .5s;
+            z-index: 3000;
+
+            >li{
+                color: #fff;
+                font-size: 20px;
+                padding: 18px;
+                cursor: pointer;
+            }
+
+            >ul{
+                display: flex;
+                flex-direction: column;
+                justify-content: space-around;
+            }
+
+            >a{
+                text-align:center;
+                font-family: 'Viga';
+                color: #7C3267;
+            }
+            >a::after{
+                content: '';
+                width: 50%;
+                background: #7C3267;
+                height: 3px;
+                display: block;
+            }
+        }
+    }
+
+    @media (min-width:801px) and (max-width: 1024px) { 
+
+        .logomin{
+            display: block;
+        } 
+    
+        .logobig{
+            display: none;
+        }
+    
+        .menu-hidde{
+            display: none;
+        }
+    }
+
+    @media (min-width:1025px) and (max-width: 1280px) { 
+
+        .logomin{
+            display: block;
+            padding-left: 10px;
+        } 
+    
+        .logobig{
+            display: none;
+        }
+    
+        .menu-hidde{
+            display: none;
+        }
+
+    }
+
+    @media (min-width:1281px) { 
+
+        .logomin{
+            display: none;
+        }
+        .-secundary .logomin{
+            display: block;
+        }
+        .logobig{
+            display: block;
+        }
+        .menu-hidde{
+            display: none;
+        }
+     }
+    
+
+}
