@@ -21,18 +21,7 @@ export function Slide(){
             </div>
 
             <div className="nuvens">
-                <div className="wrapper-nuvens">
-                    <div id="Clouds" className="Cloud Foreground"></div>
-                    <div id="Clouds" className="Cloud Background"></div>
-                    <div id="Clouds" className="Cloud Foreground"></div>
-                    <div id="Clouds" className="Cloud Background"></div>
-                    <div id="Clouds" className="Cloud Foreground"></div>
-                    <div id="Clouds" className="Cloud Background"></div>
-                    <div id="Clouds" className="Cloud Foreground"></div>
-                    <div id="Clouds" className="Cloud Background"></div>
-                    <div id="Clouds" className="Cloud Foreground"></div>
-                    <div id="Clouds" className="Cloud Background"></div>
-                </div>
+                <div className="Cloud"></div>
             </div>
         </section>
         </>

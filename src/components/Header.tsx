@@ -4,6 +4,8 @@ import logo from '../assets/img/logo-clau.png'
 import avatar from '../assets/img/avatar-login.png'
 
 export function Header(){
+
+
     return(
         <header className="main-header">
             <img src={logoMin} alt="logo clau min" className="logomin"/>
