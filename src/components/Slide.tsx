@@ -1,7 +1,7 @@
 import '../styles/slide.scss'
+import '../styles/nuvens.css'
 import nuvem from '../assets/img/nuvem-fundo.png'
 import produto from '../assets/img/produto-3.jpeg'
-import videoBackground from '../assets/videos/playback.mp4'
 
 
 export function Slide(){
@@ -21,11 +21,20 @@ export function Slide(){
                 <img className="wrapper-slide -mascara" id="img" src={produto} alt=""/>
             </div>
 
-        
-
-            <video preload="auto" autoPlay={true} loop className="bg_video" muted>
-                <source src={videoBackground} type="video/mp4"/>
-            </video>
+            <div className="nuvens">
+                <div className="wrapper-nuvens">
+                    <div id="Clouds" className="Cloud Foreground"></div>
+                    <div id="Clouds" className="Cloud Background"></div>
+                    <div id="Clouds" className="Cloud Foreground"></div>
+                    <div id="Clouds" className="Cloud Background"></div>
+                    <div id="Clouds" className="Cloud Foreground"></div>
+                    <div id="Clouds" className="Cloud Background"></div>
+                    <div id="Clouds" className="Cloud Foreground"></div>
+                    <div id="Clouds" className="Cloud Background"></div>
+                    <div id="Clouds" className="Cloud Foreground"></div>
+                    <div id="Clouds" className="Cloud Background"></div>
+                </div>
+            </div>
         </section>
         </>
     );

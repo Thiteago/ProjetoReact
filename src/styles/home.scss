@@ -1,0 +1,23 @@
+.main-request{
+    text-align: center;
+    height: 141px;
+
+    >h1{
+        font-family: WinterSunday;
+        color: #000;
+    }
+
+    >button{
+        font-family: "Viga", Arial, Helvetica, sans-serif;
+        background-color: #FFB2CE;
+        color: #fff;
+        height: 56px;
+        width: 273px;
+        font-size: 27px;
+        border: 0;
+    }
+}
+
+.container-home{
+    background: linear-gradient(180deg, #f3f1fe 0%, #e2e2e2 77%, #ffffff 100%);
+}

@@ -1,7 +1,9 @@
 import '../styles/testemunhos.scss'
 import avatar from '../assets/img/cliente-av-fit.png'
-
-
+import React from 'react';
+import OwlCarousel from 'react-owl-carousel';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 
 export function Testemunhos(){
@@ -10,6 +12,7 @@ export function Testemunhos(){
             <div className="main-comments">
                 <h1 className="main-title">Depoimentos</h1>
                 <div className="slider"> 
+                    <OwlCarousel>
                     <div className="card">
                         <div className="img">
                             <img src={avatar} alt="avatar"/>
@@ -49,6 +52,7 @@ export function Testemunhos(){
                             <p>qjweowqjeijoiasjeoiajoiajeioajeoaseoiseioasjeoiasjeiosajeoa</p>
                         </div>
                     </div>
+                    </OwlCarousel>
                 </div>
             </div>
         </>
