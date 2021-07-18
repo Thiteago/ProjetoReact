@@ -1,0 +1,91 @@
+.main-comments{
+    text-align: center;
+    background: linear-gradient(180deg, rgba(243,241,254,1) 0%, rgba(226, 226, 226, 1) 77%, rgba(226, 226, 226,1) 100%);
+    height: 100%;
+    padding-top: 45px;
+    margin-bottom: -1px;
+    padding-bottom: 20px;
+
+    .main-title{
+        font-family: WinterSunday;
+        font-size: 92px;
+        color: #F4D6F1;
+        text-shadow: -1px 3px 0px #FF005C;
+    }
+
+    .slider{
+        max-width: 1150px;
+        display: flex;
+
+        .card{
+            flex: 1;
+            margin: 0 10px;
+
+            .content{
+                padding: 10px 20px;
+            }
+
+            .title{
+                font-size: 25px;
+                font-weight: 600;
+            }
+            .img{
+                >img{
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+
+    @media(min-width: 320px) and (max-width: 479px){
+        
+        height: 100%;
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+        padding-bottom: 20px;
+        flex-wrap: nowrap;
+        
+
+        .slider{
+            flex-wrap: nowrap;
+            .card{
+                min-width: auto;
+                margin: auto;
+                position: relative;
+
+                .content{
+                    padding: 10px;
+                }
+                .img{
+                    text-align: center;
+                    >img{
+                        height: auto;
+                        width: auto;
+                        margin: 0 auto;
+                    }
+                }
+            }
+        }
+    }
+    
+    @media(min-width: 1025px) and (max-width: 1280px){
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
+    
+    @media(min-width: 1281px){
+        
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        
+    }
+}
