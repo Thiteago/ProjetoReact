@@ -1,5 +1,4 @@
 import '../styles/slide.scss'
-import '../styles/nuvens.css'
 import nuvem from '../assets/img/nuvem-fundo.png'
 import produto from '../assets/img/produto-3.jpeg'
 
