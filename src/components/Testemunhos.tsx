@@ -12,7 +12,11 @@ export function Testemunhos(){
             <div className="main-comments">
                 <h1 className="main-title">Depoimentos</h1>
                 <div className="slider"> 
-                    <OwlCarousel>
+                    <OwlCarousel
+                    loop
+                    autoplay
+                    autoplayHoverPause
+                    >
                     <div className="card">
                         <div className="img">
                             <img src={avatar} alt="avatar"/>

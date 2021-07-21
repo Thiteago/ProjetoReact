@@ -1,9 +1,11 @@
 import '../styles/slide.scss'
+import react, {useState} from 'react'
 import nuvem from '../assets/img/nuvem-fundo.png'
-import produto from '../assets/img/produto-3.jpeg'
+import { SlideData } from './SlideData';
 
 
 export function Slide(){
+    
     return(
         <>
         <section className="main-slide">
@@ -17,7 +19,11 @@ export function Slide(){
                     </div>
                 </div>
                 <img className="wrapper-slide -fundo" src={nuvem} alt=""/>
-                <img className="wrapper-slide -mascara" id="img" src={produto} alt=""/>
+                {SlideData.map(({image}, index) => {
+                    return(
+                        <img className="wrapper-slide -mascara" id="img" src={image} alt="produto imagem"/>
+                    )
+                })}
             </div>
 
             <div className="nuvens">

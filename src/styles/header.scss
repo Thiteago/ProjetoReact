@@ -18,6 +18,10 @@
     height: 105px;
     width: 100%;
 
+    >img{
+        z-index: 40;
+    }
+
     .wrapper-login{
         border-radius: 40px;
         background-color: #DB00FF;
