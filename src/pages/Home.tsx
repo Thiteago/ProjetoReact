@@ -1,5 +1,6 @@
 import { Header } from "../components/Header";
-import {Slide} from '../components/Slide';
+import Slide from '../components/Slide';
+import { SlideData } from "../components/SlideData";
 import { Testemunhos } from "../components/Testemunhos";
 import {Footer} from '../components/Footer'
 import '../styles/home.scss'
@@ -11,7 +12,7 @@ export function Home(){
     return(
         <div className="container-home">
             <Header></Header>
-            <Slide></Slide>
+            <Slide slides={SlideData}></Slide>
             <div className="main-topseller">
                 <h1 className="main-title">Mais Pedidos</h1>
 

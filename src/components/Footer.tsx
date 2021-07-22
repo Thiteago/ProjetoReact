@@ -6,8 +6,8 @@ export function Footer(){
     return(
         <div>
             <footer className="main-footer">
-                <a href="#"><img src={logoInstagram} alt="logo do instagram"/></a>
-                <a href="#"><img src={logoFacebook} alt="logo do facebook"/></a>
+                <a href="www.google.com"><img src={logoInstagram} alt="logo do instagram"/></a>
+                <a href="www.google.com"><img src={logoFacebook} alt="logo do facebook"/></a>
             </footer>
         </div>
 

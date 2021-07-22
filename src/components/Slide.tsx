@@ -1,11 +1,32 @@
 import '../styles/slide.scss'
-import react, {useState} from 'react'
+import {useEffect, useState} from 'react'
 import nuvem from '../assets/img/nuvem-fundo.png'
 import { SlideData } from './SlideData';
 
 
-export function Slide(){
-    
+const Slide = ({slides} : {slides : any}) => {
+const [current, setCurrent] = useState(0)
+const length = slides.lenght;
+
+
+
+const nextSlide = () =>{
+    setCurrent(current === length - 1 ? 0 : current + 1);
+    if(current === length){
+        setCurrent(0);
+    }
+};
+
+
+
+
+
+
+if(!Array.isArray(slides) || slides.length <=0){
+    return null;
+}
+
+
     return(
         <>
         <section className="main-slide">
@@ -19,9 +40,11 @@ export function Slide(){
                     </div>
                 </div>
                 <img className="wrapper-slide -fundo" src={nuvem} alt=""/>
-                {SlideData.map(({image}, index) => {
+                {SlideData.map((slide, index) => {
                     return(
-                        <img className="wrapper-slide -mascara" id="img" src={image} alt="produto imagem"/>
+                        <div className={index === current ? 'slide active' : 'slide'} key={index}>
+                            {index === current && (<img className="wrapper-slide -mascara" id="img" src={slide.image} alt="produto imagem"/>)}
+                        </div>
                     )
                 })}
             </div>
@@ -33,3 +56,5 @@ export function Slide(){
         </>
     );
 }
+
+export default Slide;
