@@ -9,7 +9,6 @@ const [current, setCurrent] = useState(0)
 const length = slides.lenght;
 
 
-
 const nextSlide = () =>{
     setCurrent(current === length - 1 ? 0 : current + 1);
     if(current === length){
@@ -17,15 +16,12 @@ const nextSlide = () =>{
     }
 };
 
-
-
-
-
-
-if(!Array.isArray(slides) || slides.length <=0){
-    return null;
-}
-
+useEffect(() => {
+    const interv = setInterval(nextSlide, 3000)
+    return () => {
+        clearInterval(interv);
+    }
+})
 
     return(
         <>
