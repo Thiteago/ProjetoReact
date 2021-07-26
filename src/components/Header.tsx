@@ -1,4 +1,5 @@
 import '../styles/header.scss'
+import { Link } from 'react-router-dom'
 import logoMin from '../assets/img/logomin.jpg'
 import logo from '../assets/img/logo-clau.png'
 import avatar from '../assets/img/avatar-login.png'
@@ -10,8 +11,8 @@ export function Header(){
             <img src={logoMin} alt="logo clau min" className="logomin"/>
             <img src={logo} alt="logo clau prado" height="244" width="230" className="logobig"/>
             <nav className="nav">
-                <a className="main-action" href="www.google.com">Inicio</a>
-                <a className="main-action" href="produtos.html">Produtos</a>
+                <a className="main-action">Inicio</a>
+                <Link to={"./Produtos"}><a className="main-action" href="produtos.html">Produtos</a></Link>
                 <a className="main-action" href="mandesuaideia.html">Mande sua Ideia</a>
                 <a className="main-action" href="sobre.html">Sobre</a>
             </nav>
