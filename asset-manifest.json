@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/ProjetoReact/static/css/main.45bb1349.chunk.css",
-    "main.js": "/ProjetoReact/static/js/main.423ed319.chunk.js",
-    "main.js.map": "/ProjetoReact/static/js/main.423ed319.chunk.js.map",
+    "main.js": "/ProjetoReact/static/js/main.b916ed52.chunk.js",
+    "main.js.map": "/ProjetoReact/static/js/main.b916ed52.chunk.js.map",
     "runtime-main.js": "/ProjetoReact/static/js/runtime-main.c323b6a6.js",
     "runtime-main.js.map": "/ProjetoReact/static/js/runtime-main.c323b6a6.js.map",
     "static/css/2.591db2b6.chunk.css": "/ProjetoReact/static/css/2.591db2b6.chunk.css",
@@ -17,13 +17,16 @@
     "static/media/cliente-av-fit.34920132.png": "/ProjetoReact/static/media/cliente-av-fit.34920132.png",
     "static/media/logo-clau.a1870fd7.png": "/ProjetoReact/static/media/logo-clau.a1870fd7.png",
     "static/media/logomin.72d25b28.jpg": "/ProjetoReact/static/media/logomin.72d25b28.jpg",
-    "static/media/slide.scss": "/ProjetoReact/static/media/nuvem-fundo.56a01b04.png"
+    "static/media/slide.scss": "/ProjetoReact/static/media/nuvem-fundo.56a01b04.png",
+    "static/media/produto-2.3987f412.jpeg": "/ProjetoReact/static/media/produto-2.3987f412.jpeg",
+    "static/media/produto-3.e5c80453.jpeg": "/ProjetoReact/static/media/produto-3.e5c80453.jpeg",
+    "static/media/produto-5.9c271ed3.jpg": "/ProjetoReact/static/media/produto-5.9c271ed3.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.c323b6a6.js",
     "static/css/2.591db2b6.chunk.css",
     "static/js/2.77d371f5.chunk.js",
     "static/css/main.45bb1349.chunk.css",
-    "static/js/main.423ed319.chunk.js"
+    "static/js/main.b916ed52.chunk.js"
   ]
 }
