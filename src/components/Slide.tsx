@@ -31,8 +31,21 @@ const Slide = ({slides} : {slides : any}) => {
             <section className="main-slide">
                 <div className="wrapper-slide">
                     <div className="legenda">
-                        <h1 id="titulo">Titulo</h1>
-                        <p id="descricao">Texto</p>
+                        {SlideData.map((slide, index) => {
+                            return(
+                                <div className={index === current ? 'slide active' : 'slide'} key={index}>
+                                {index === current && (<h1> {slide.title} </h1>)}
+                                </div>
+                            )
+                        })}
+
+                        {SlideData.map((slide, index) => {
+                            return(
+                                <div className={index === current ? 'slide active' : 'slide'} key={index}>
+                                {index === current && (<p> {slide.describe} </p>)}
+                                </div>
+                            )
+                        })}
                         <div className="clouds">
                             <img src={nuvem} alt="nuvem esquerda"/>
                             <img src={nuvem} alt="nuvem direita"/>

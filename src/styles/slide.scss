@@ -102,24 +102,25 @@
             height: 120px;
             top: 325px;
 
-            >h1{
-                text-align: center;
-                font-family: WinterSunday;
-                font-size: 45px;
-                color: #FFF;
-                text-shadow: 1px 2px 0px #000;
-            }
+            .slide{
+                >h1{
+                    text-align: center;
+                    font-family: WinterSunday;
+                    font-size: 45px;
+                    color: #FFF;
+                    text-shadow: 1px 2px 0px #000;
+                }
 
-            >p{
-                text-align: center;
-                font-family: "Viga", Arial, Helvetica, sans-serif;
-                color: #FFF;
-                text-shadow: 1px 1px 1px #000;
-                width: 369px;
-                left: 135px;
-                position: relative;
+                >p{
+                    text-align: center;
+                    font-family: "Viga", Arial, Helvetica, sans-serif;
+                    color: #FFF;
+                    text-shadow: 1px 1px 1px #000;
+                    width: 369px;
+                    left: 115px;
+                    position: relative;
+                }
             }
-
         }
     }
 
