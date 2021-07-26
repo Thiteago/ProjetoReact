@@ -5,10 +5,10 @@ import { Produtos } from './pages/Produtos';
 
 function App() {
   return (
-    <HashRouter>
+    <HashRouter basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route path="/" exact component={Home}/>
-          <Route path="/Produtos" component={Produtos}/>
+          <Route path="/Produtos/" component={Produtos}/>
         </Switch>
     </HashRouter>
   );
