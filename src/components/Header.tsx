@@ -11,7 +11,7 @@ export function Header(){
             <img src={logoMin} alt="logo clau min" className="logomin"/>
             <img src={logo} alt="logo clau prado" height="244" width="230" className="logobig"/>
             <nav className="nav">
-                <a className="main-action">Inicio</a>
+                <Link to={"./"}><a className="main-action">Inicio</a></Link>
                 <Link to={"./Produtos"}><a className="main-action" href="produtos.html">Produtos</a></Link>
                 <a className="main-action" href="mandesuaideia.html">Mande sua Ideia</a>
                 <a className="main-action" href="sobre.html">Sobre</a>
