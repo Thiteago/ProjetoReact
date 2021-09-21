@@ -11,10 +11,10 @@ export function Header(){
             <img src={logoMin} alt="logo clau min" className="logomin"/>
             <img src={logo} alt="logo clau prado" height="244" width="230" className="logobig"/>
             <nav className="nav">
-                <Link to={"./#"}><a className="main-action">Inicio</a></Link>
+                <Link to={"./#"}><a href="javascript:void(0)" className="main-action">Inicio</a></Link>
                 <Link to={"./Produtos"}><a className="main-action">Produtos</a></Link>
                 <Link to={"./MandeSuaIdeia"}><a className="main-action">Mande sua Ideia</a></Link>
-                <Link to={"./Sobre"}><a className="main-action" href="sobre.html">Sobre</a></Link>
+                <Link to={"./Sobre"}><a className="main-action">Sobre</a></Link>
             </nav>
             <div className="menu-trigger" id="menu-trigger">
                 <div></div>
@@ -23,15 +23,15 @@ export function Header(){
             </div>
             <nav className="menu-hidde" id="menu-hidde">
                 <ul>
-                    <li><a href="www.google.com">Inicio</a></li>
-                    <li><a href="produtos.html">Produtos</a></li>
-                    <li><a href="mandesuaideia.html">Mande Sua Ideia</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a>Inicio</a></li>
+                    <li><a>Produtos</a></li>
+                    <li><a>Mande Sua Ideia</a></li>
+                    <li><a>Sobre</a></li>
                 </ul>
             </nav>
             <div className="wrapper-login">
                 <Link to={"./Login"}><a className="main-action -second">Login</a></Link>
-                <a className="main-action -third" href="www.google.com">ou Cadastre-se</a>
+                <a className="main-action -third">ou Cadastre-se</a>
                 <img src={avatar} alt="imagem para cadastro" height="105" className="img_avatar"/>
             </div>
         </header>

@@ -3,7 +3,6 @@ import logoInstagram from "../assets/img/instagram-logo.png";
 import logoFacebook from "../assets/img/facebook-logo.png";
 import fotoClau from "../assets/img/foto-clau.png";
 import '../styles/sobre.scss';
-import { Footer } from "../components/Footer";
 
 export function Sobre(){
     return(

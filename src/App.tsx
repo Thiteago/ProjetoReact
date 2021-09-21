@@ -5,16 +5,15 @@ import { Produtos } from './pages/Produtos';
 import { Sobre } from './pages/Sobre';
 import { Login } from './pages/Login';
 
-function App() {
+  function App() {
   return (
     <HashRouter>
-
             <Switch>
                 <Route path="/" exact component={Home}/>
-                <Route path="/Produtos/" component={Produtos}/>
-                <Route path="/MandeSuaIdeia/" component={MandeSuaIdeia}/>
-                <Route path="/Sobre/" component={Sobre}/>
-                <Route path="/Login/" component={Login}/>
+                <Route path="/Produtos" component={Produtos}/>
+                <Route path="/MandeSuaIdeia" component={MandeSuaIdeia}/>
+                <Route path="/Sobre" component={Sobre}/>
+                <Route path="/Login" component={Login}/>
             </Switch>
     </HashRouter>
   );

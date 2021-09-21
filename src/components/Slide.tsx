@@ -6,7 +6,7 @@ import { SlideData } from './SlideData';
 
 const Slide = ({slides} : {slides : any}) => {
 
-    var [current, setCurrent] = useState(0)
+    const [current, setCurrent] = useState(0);
     const length = Object.keys(slides).length;
 
 
