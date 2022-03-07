@@ -13,23 +13,27 @@ export function Home(){
         <div className="container-home">
             <Header></Header>
             <Slide slides={SlideData}></Slide>
-            <div className="main-topseller">
-                <h1 className="main-title">Mais Pedidos</h1>
+           
+            <div className="container-Content">
+                
+                <div className="main-topseller">
+                    <h1 className="main-title">Mais Pedidos</h1>
+                    <div className="wrapper-maisvendidos">
+                        <div className="produto">
+                            <p>Produto1</p>
+                        </div>
+                        <div id="espaco" className="produto">
+                            <p>Produto2</p>
+                        </div>
+                        <div className="produto">
+                            <p>Produto3</p>
+                        </div>
 
-                <div className="wrapper-maisvendidos">
-                    <div className="produto">
-                        <p>Produto1</p>
-                    </div>
-                    <div id="espaco" className="produto">
-                        <p>Produto2</p>
-                    </div>
-                    <div className="produto">
-                        <p>Produto3</p>
                     </div>
 
                 </div>
-            </div>
-            <div className="main-recentworks">
+
+                <div className="main-recentworks">
                 <h1 className="main-title">Ultimos Trabalhos</h1>
 
                 <div className="wrapper-products">
@@ -49,6 +53,8 @@ export function Home(){
                 <button>Encomendar</button>
             </section>
             <Footer></Footer>
+            </div>
+
         </div>
         
     )

@@ -6,8 +6,6 @@ export function Login() {
 
     const [current, setCurrent] = useState("container");
 
-
-
     return (
         <>
             <div className="body">
