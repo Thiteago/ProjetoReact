@@ -3,6 +3,10 @@ import Slide from '../components/Slide';
 import { SlideData } from "../components/SlideData";
 import { Testemunhos } from "../components/Testemunhos";
 import {Footer} from '../components/Footer'
+import LocateIcon from '../assets/icons/location.svg';
+import Heart from '../assets/icons/heart.svg';
+import Card from '../assets/icons/card.svg';
+import Locker from '../assets/icons/lock.svg';
 import '../styles/home.scss'
 import '../styles/maisvendidos.scss'
 import '../styles/ultimostrabalhos.scss'
@@ -17,18 +21,30 @@ export function Home(){
             <div className="container-Content">
                 
                 <div className="main-topseller">
-                    <h1 className="main-title">Mais Pedidos</h1>
+                    <h1 className="main-title">
+                        <span></span>
+                            <p>Clau Prado</p>
+                        <span></span>
+                    </h1>
                     <div className="wrapper-maisvendidos">
-                        <div className="produto">
-                            <p>Produto1</p>
+                        <div>
+                            <div className="locate-info">
+                                <img src={LocateIcon} alt="" />
+                                <div>Encomendas para Campos do Jordão e Região</div>
+                            </div>
                         </div>
-                        <div id="espaco" className="produto">
-                            <p>Produto2</p>
+                        <div>
+                            <div className="locate-info">
+                                <img src={Card} alt="" />
+                                <div>COMPRAS EM ATÉ 3x sem juros</div>
+                            </div>
                         </div>
-                        <div className="produto">
-                            <p>Produto3</p>
+                        <div>
+                            <div className="locate-info">
+                                <img src={Locker} alt="" />
+                                <div>SITE SEGURO compre tranquilo</div>    
+                            </div>
                         </div>
-
                     </div>
 
                 </div>

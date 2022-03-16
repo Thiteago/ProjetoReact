@@ -1,0 +1,194 @@
+.main-slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  /**background-color: #ECECEC;**/
+  height: 450px;
+  overflow: hidden;
+  border-bottom: 6px ridge #FFF;
+  position: relative;
+}
+
+.main-slide .nuvens {
+  width: 100%;
+  height: 100%;
+  min-width: 500px;
+  min-height: 500px;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.main-slide .nuvens .Cloud {
+  position: relative;
+  height: 100%;
+  background: url(https://static.radulescu.me/examples/clouds/clouds1000.png);
+  background: url(https://static.radulescu.me/examples/clouds/clouds1000.png) 0 200px, url(https://static.radulescu.me/examples/clouds/clouds1200_1.png) 0 300px, url(https://static.radulescu.me/examples/clouds/clouds1000_blur3.png) 100px 250px;
+  -webkit-animation: wind 20s linear infinite;
+          animation: wind 20s linear infinite;
+}
+
+@-webkit-keyframes wind {
+  0% {
+    background-position: 0 200px, 0 300px, 100px 250px;
+  }
+  100% {
+    background-position: 1000px 200px, 1200px 300px, 1100px 250px;
+  }
+}
+
+@keyframes wind {
+  0% {
+    background-position: 0 200px, 0 300px, 100px 250px;
+  }
+  100% {
+    background-position: 1000px 200px, 1200px 300px, 1100px 250px;
+  }
+}
+
+.main-slide .clouds {
+  position: absolute;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  z-index: 3;
+  overflow: hidden;
+  top: -131px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  left: -506px;
+}
+
+.main-slide .clouds > img {
+  position: relative;
+  height: 251px;
+  width: auto;
+  bottom: -54px;
+  overflow: hidden;
+  margin: 0px 230px 0px 230px;
+}
+
+.main-slide .bg_video {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1000;
+  overflow: hidden;
+}
+
+.main-slide .wrapper-slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  position: absolute;
+}
+
+.main-slide .wrapper-slide .wrapper-slide.-fundo {
+  z-index: 1;
+  position: relative;
+  height: 678px;
+  top: -100px;
+}
+
+.main-slide .wrapper-slide .wrapper-slide.-mascara {
+  -webkit-mask-image: url(../assets/img/nuvem-fundo.png);
+  -webkit-mask-size: 918px;
+  -webkit-mask-repeat: no-repeat;
+  z-index: 2;
+  position: absolute;
+  height: 650px;
+  top: -85px;
+  left: 20px;
+}
+
+.main-slide .wrapper-slide .legenda {
+  z-index: 3;
+  background-color: rgba(200, 54, 230, 0.33);
+  width: 605px;
+  position: absolute;
+  height: 120px;
+  top: 325px;
+}
+
+.main-slide .wrapper-slide .legenda .slide > h1 {
+  text-align: center;
+  font-family: WinterSunday;
+  font-size: 45px;
+  color: #FFF;
+  text-shadow: 1px 2px 0px #000;
+}
+
+.main-slide .wrapper-slide .legenda .slide > p {
+  text-align: center;
+  font-family: "Viga", Arial, Helvetica, sans-serif;
+  color: #FFF;
+  text-shadow: 1px 1px 1px #000;
+  width: 369px;
+  left: 115px;
+  position: relative;
+}
+
+@media (min-width: 320px) and (max-width: 599px) {
+  .main-slide {
+    height: 470px;
+  }
+  .main-slide .wrapper-slide .class {
+    display: none;
+  }
+  .main-slide .wrapper-slide .legenda {
+    width: 100%;
+    height: 140px;
+  }
+  .main-slide .wrapper-slide .legenda > p {
+    width: auto;
+    left: auto;
+  }
+  .main-slide .wrapper-slide .clouds {
+    display: none;
+  }
+}
+
+@media (min-width: 600px) and (max-width: 800px) {
+  .main-slide .wrapper-slide .class {
+    display: none;
+  }
+  .main-slide .wrapper-slide .legenda {
+    width: 100%;
+    height: 120px;
+  }
+  .main-slide .wrapper-slide .legenda p {
+    width: auto;
+    left: auto;
+    padding-left: 35px;
+  }
+  .main-slide .wrapper-slide .clouds {
+    display: none;
+  }
+}
+
+@media (min-width: 801px) and (max-width: 1024px) {
+  .main-slide .clouds img {
+    margin: 0px 220px 0px 233px;
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .main-slide .clouds img {
+    margin: 0px 220px 0px 233px;
+  }
+}
+/*# sourceMappingURL=slide.css.map */
