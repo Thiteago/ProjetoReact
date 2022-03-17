@@ -9,7 +9,11 @@ export function Testemunhos(){
     return (
         <>
             <div className="main-comments">
-                <h1 className="main-title">Depoimentos</h1>
+                <h1 className="main-title">
+                    <span className='divider'></span>
+                        <p>Depoimentos</p>
+                    <span className='divider'></span>
+                    </h1>
                 <div className="slider"> 
                     <OwlCarousel
                     loop

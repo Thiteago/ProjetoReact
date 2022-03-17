@@ -22,9 +22,9 @@ export function Home(){
                 
                 <div className="main-topseller">
                     <h1 className="main-title">
-                        <span></span>
+                        <span className="divider"></span>
                             <p>Clau Prado</p>
-                        <span></span>
+                        <span className="divider"></span>
                     </h1>
                     <div className="wrapper-maisvendidos">
                         <div>
@@ -50,19 +50,12 @@ export function Home(){
                 </div>
 
                 <div className="main-recentworks">
-                <h1 className="main-title">Ultimos Trabalhos</h1>
-
-                <div className="wrapper-products">
-                    <div className="main-product"></div>
-
-                    <div className="wrapper-secundary">
-                        <div className="secundary-product"></div>
-                        <div className="secundary-product"></div>
-                        <div className="secundary-product"></div>
-                        <div className="secundary-product"></div>
-                    </div>
+                    <h1 className="main-title">
+                        <span className="divider"></span>
+                            <p>Promoções</p>
+                        <span className="divider"></span>    
+                    </h1>
                 </div>
-            </div>
             <Testemunhos></Testemunhos>
             <section className="main-request">
                 <h1>Faça seu pedido já!</h1>
