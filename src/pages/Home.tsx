@@ -4,12 +4,12 @@ import { SlideData } from "../components/SlideData";
 import { Testemunhos } from "../components/Testemunhos";
 import {Footer} from '../components/Footer'
 import LocateIcon from '../assets/icons/location.svg';
-import Heart from '../assets/icons/heart.svg';
 import Card from '../assets/icons/card.svg';
 import Locker from '../assets/icons/lock.svg';
 import '../styles/home.scss'
 import '../styles/maisvendidos.scss'
 import '../styles/ultimostrabalhos.scss'
+import {Promocoes} from '../components/Promocoes';
 
 
 export function Home(){
@@ -55,6 +55,7 @@ export function Home(){
                             <p>Promoções</p>
                         <span className="divider"></span>    
                     </h1>
+                    <Promocoes></Promocoes>
                 </div>
             <Testemunhos></Testemunhos>
             <section className="main-request">
