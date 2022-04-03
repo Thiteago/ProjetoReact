@@ -10,6 +10,7 @@ import '../styles/home.scss'
 import '../styles/maisvendidos.scss'
 import '../styles/ultimostrabalhos.scss'
 import {Promocoes} from '../components/Promocoes';
+import { CategoryList } from "../components/CategoryList";
 
 
 export function Home(){
@@ -57,12 +58,24 @@ export function Home(){
                     </h1>
                     <Promocoes></Promocoes>
                 </div>
-            <Testemunhos></Testemunhos>
-            <section className="main-request">
-                <h1>Faça seu pedido já!</h1>
-                <button>Encomendar</button>
-            </section>
-            <Footer></Footer>
+
+                <div className="category-container">
+                    <h1 className="main-title">
+                        <span className="divider"></span>
+                            <p>Para sua Festa</p>
+                        <span className="divider"></span>
+                    </h1>
+                    <CategoryList></CategoryList>
+
+                </div>
+
+
+                <Testemunhos></Testemunhos>
+                <section className="main-request">
+                    <h1>Faça seu pedido já!</h1>
+                    <button>Encomendar</button>
+                </section>
+                <Footer></Footer>
             </div>
 
         </div>
