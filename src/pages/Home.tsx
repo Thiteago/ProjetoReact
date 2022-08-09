@@ -75,9 +75,8 @@ export function Home(){
                     <h1>Faça seu pedido já!</h1>
                     <button>Encomendar</button>
                 </section>
-                <Footer></Footer>
             </div>
-
+            <Footer></Footer>
         </div>
         
     )
