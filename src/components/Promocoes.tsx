@@ -12,8 +12,6 @@ export function Promocoes(){
                 <div className="slider"> 
                     <OwlCarousel
                     loop
-                    autoplay
-                    autoplayHoverPause
                     >
                         <Card></Card>
                         <Card></Card>
