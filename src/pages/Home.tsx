@@ -10,7 +10,7 @@ import '../styles/home.scss'
 import '../styles/maisvendidos.scss'
 import '../styles/ultimostrabalhos.scss'
 import {Promocoes} from '../components/Promocoes';
-import { CategoryList } from "../components/CategoryList";
+import { Category } from "../components/Category";
 
 
 export function Home(){
@@ -65,8 +65,7 @@ export function Home(){
                             <p>Para sua Festa</p>
                         <span className="divider"></span>
                     </h1>
-                    
-                    <CategoryList></CategoryList>
+                    <Category></Category>
 
                 </div>
 

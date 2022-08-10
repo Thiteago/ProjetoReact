@@ -1,7 +1,7 @@
 import '../styles/CategoryList.scss';
 import avatar from '../assets/img/cliente-av-fit.png';
 
-export function CategoryList(){
+export function Category(){
     return(
         <>
             <div className="container-cards">
@@ -9,9 +9,11 @@ export function CategoryList(){
                     <div className="icon-category">
                         <img src={avatar} alt="#" />
                     </div>
-                    <div className="info-category"></div>
+                    <div className="info-category">
+                        <div className='title'><h1>Titulo</h1></div>
+                        <div className='description'>Descrição</div>
+                    </div>
                 </div>
-                <div className='card-category'></div>
             </div>
         </>
     )
