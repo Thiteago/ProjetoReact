@@ -1,4 +1,14 @@
+.container-cards{
+    
+}
+
+.card-category:first-child{
+    border-top: 1px solid #EDEDED;
+}
 
 .card-category{
-    width: 50%;
+    height: 250px;
+    margin: 10px 0 10px 0;
+    display: flex;
+    border-bottom: 1px solid #EDEDED;
 }

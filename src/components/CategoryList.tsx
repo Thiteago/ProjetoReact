@@ -5,14 +5,11 @@ export function CategoryList(){
         <>
             <div className="container-cards">
                 <div className='card-category'>
-                    <img src="#" alt="" />
+                    <div className="icon-category">
+                        
+                    </div>
+                    <div className="info-category"></div>
                 </div>
-                <div className='card-category'></div>
-                <div className='card-category'></div>
-                <div className='card-category'></div>
-                <div className='card-category'></div>
-                <div className='card-category'></div>
-                <div className='card-category'></div>
                 <div className='card-category'></div>
             </div>
         </>

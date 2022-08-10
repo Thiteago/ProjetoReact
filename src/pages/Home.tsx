@@ -65,6 +65,7 @@ export function Home(){
                             <p>Para sua Festa</p>
                         <span className="divider"></span>
                     </h1>
+                    
                     <CategoryList></CategoryList>
 
                 </div>
