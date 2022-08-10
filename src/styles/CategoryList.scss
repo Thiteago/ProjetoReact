@@ -10,5 +10,15 @@
     height: 250px;
     margin: 10px 0 10px 0;
     display: flex;
+    align-items: center;
     border-bottom: 1px solid #EDEDED;
+
+    .icon-category{
+        display: flex;
+        height: 150px;
+        padding-left: 30px;
+
+    }
+    
 }
+
