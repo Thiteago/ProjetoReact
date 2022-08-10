@@ -8,8 +8,7 @@ body{
 
 .main-busca{
     display: flex;
-    align-items: center;
-    flex-direction: column;
+    justify-content: end;
 
     .main-title{
         padding: 20px 0;
@@ -21,13 +20,12 @@ body{
 
     .wrapper-busca{
         position: relative;
-        bottom: 33px;
+        padding-top: 20px;
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        
 
         >input{
-            width: 515px;
+            width: 400px;
             border-radius: 76px;
             padding-left: 10px;
             text-align: center;
@@ -35,7 +33,7 @@ body{
 
         >button{
             text-align: center;
-            width: 266px;
+            width: 100px;
             height: 30px;
             font-family: 'Viga',Arial, Helvetica, sans-serif;
             font-size: 1em;
