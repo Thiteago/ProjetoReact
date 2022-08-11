@@ -1,7 +1,11 @@
 import "../Divider/Divider.scss"
-import * as React from 'react'
 
-export function Divider(props){
+interface DividerProps{
+    titulo: string;
+}
+
+
+export function Divider(props:DividerProps){
     return(
         <h1 className="main-title">
             <span className="divider"></span>

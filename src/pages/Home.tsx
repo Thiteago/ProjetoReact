@@ -22,11 +22,7 @@ export function Home(){
             <div className="container-Content">
                 
                 <div className="main-topseller">
-                    <h1 className="main-title">
-                        <span className="divider"></span>
-                            <p>Clau Prado</p>
-                        <span className="divider"></span>
-                    </h1>
+                    <Divider titulo="Clau Prado"></Divider>
                     <div className="wrapper-maisvendidos">
                         <div>
                             <div className="locate-info">
@@ -56,11 +52,7 @@ export function Home(){
                 </div>
 
                 <div className="category-container">
-                    <h1 className="main-title">
-                        <span className="divider"></span>
-                            <p>Para sua Festa</p>
-                        <span className="divider"></span>
-                    </h1>
+                    <Divider titulo="Para sua Festa"></Divider>
                     <Category></Category>
 
                 </div>

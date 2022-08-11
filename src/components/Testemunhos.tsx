@@ -3,17 +3,14 @@ import avatar from '../assets/img/cliente-av-fit.png'
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+import { Divider } from './Divider/Divider';
 
 
 export function Testemunhos(){
     return (
         <>
             <div className="main-comments">
-                <h1 className="main-title">
-                    <span className='divider'></span>
-                        <p>Depoimentos</p>
-                    <span className='divider'></span>
-                    </h1>
+                <Divider titulo="Depoimentos"></Divider>
                 <div className="slider"> 
                     <OwlCarousel
                     loop
