@@ -1,6 +1,6 @@
-import '../styles/produtos.scss';
-import avatar from '../assets/img/cliente-av-fit.png'
-import cifrao from '../assets/icons/cifrao.svg'
+import '../Produto/produto.scss';
+import avatar from '../../assets/img/cliente-av-fit.png'
+import cifrao from '../../assets/icons/cifrao.svg'
 
 export function Produto(){
     return(

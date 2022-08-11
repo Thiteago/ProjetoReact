@@ -1,4 +1,4 @@
-import { Header } from "../components/Header";
+import { Header } from "../components/Header/Header";
 import logoInstagram from "../assets/img/instagram-logo.png";
 import logoFacebook from "../assets/img/facebook-logo.png";
 import fotoClau from "../assets/img/foto-clau.png";

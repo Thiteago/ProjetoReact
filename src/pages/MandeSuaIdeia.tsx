@@ -1,6 +1,6 @@
-import { Header } from "../components/Header";
+import { Header } from "../components/Header/Header";
 import img from "../assets/img/mande_sua_ideia.png"
-import { Footer } from "../components/Footer";
+import { Footer } from "../components/Footer/Footer";
 import "../styles/mandesuaideia.scss"
 
 

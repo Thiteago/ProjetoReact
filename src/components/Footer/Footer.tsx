@@ -1,6 +1,6 @@
-import logoInstagram from '../assets/img/instagram-logo.png'
-import logoFacebook from '../assets/img/facebook-logo.png'
-import '../styles/footer.scss'
+import logoInstagram from '../../assets/img/instagram-logo.png'
+import logoFacebook from '../../assets/img/facebook-logo.png'
+import '../Footer/footer.scss'
 
 export function Footer(){
     return(

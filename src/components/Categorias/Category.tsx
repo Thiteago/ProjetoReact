@@ -1,5 +1,5 @@
-import '../styles/CategoryList.scss';
-import avatar from '../assets/img/cliente-av-fit.png';
+import '../Categorias/Category.scss';
+import avatar from '../../assets/img/cliente-av-fit.png';
 
 export function Category(){
     return(

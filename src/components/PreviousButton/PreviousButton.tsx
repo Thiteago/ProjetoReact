@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import '../styles/previousButton.scss'
+import '../PreviousButton/previousButton.scss'
 
 export function PreviousButton() {
     return (

@@ -1,6 +1,7 @@
-import { Footer } from "../components/Footer";
-import { Header } from "../components/Header";
-import {Produto} from "../components/Produto";
+import { Footer } from "../components/Footer/Footer";
+import { Header } from "../components/Header/Header";
+import {Produto} from "../components/Produto/Produto";
+import {Busca} from "../components/BarraDeBusca/BarraDeBusca";
 import '../styles/produtos.scss';
 
 
@@ -10,13 +11,7 @@ export function Produtos(){
             <Header></Header>
             
             <section className="product-grid">
-
-                <section className="main-busca">
-                    <div className="wrapper-busca">
-                        <input type="text" />
-                        <button>Buscar</button>
-                    </div>
-                </section>
+                <Busca></Busca>
 
                 <aside className="container-filter">
                     <h1>Filtrar</h1>
@@ -25,7 +20,6 @@ export function Produtos(){
                     <Produto></Produto>
                     <Produto></Produto>
                 </div>
-                
             </section>
 
 

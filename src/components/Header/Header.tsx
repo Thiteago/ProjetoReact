@@ -1,8 +1,8 @@
-import '../styles/header.scss'
+import '../Header/header.scss'
 import { Link } from 'react-router-dom'
-import logoMin from '../assets/img/logomin.jpg'
-import logo from '../assets/img/logo-clau.png'
-import avatar from '../assets/img/avatar-login.png'
+import logoMin from '../../assets/img/logomin.jpg'
+import logo from '../../assets/img/logo-clau.png'
+import avatar from '../../assets/img/avatar-login.png'
 
 export function Header(){
 

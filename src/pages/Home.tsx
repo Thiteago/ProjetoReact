@@ -1,16 +1,16 @@
-import { Header } from "../components/Header";
+import { Header } from "../components/Header/Header";
 import Slide from '../components/Slide';
 import { SlideData } from "../components/SlideData";
 import { Testemunhos } from "../components/Testemunhos";
-import {Footer} from '../components/Footer'
+import {Footer} from '../components/Footer/Footer'
 import LocateIcon from '../assets/icons/location.svg';
 import Card from '../assets/icons/card.svg';
 import Locker from '../assets/icons/lock.svg';
 import '../styles/home.scss'
 import '../styles/maisvendidos.scss'
-import '../styles/ultimostrabalhos.scss'
-import {Promocoes} from '../components/Promocoes';
-import { Category } from "../components/Category";
+import {Promocoes} from '../components/Promocoes/Promocoes';
+import { Category } from "../components/Categorias/Category";
+import { Divider } from "../components/Divider/Divider";
 
 
 export function Home(){
@@ -51,11 +51,7 @@ export function Home(){
                 </div>
 
                 <div className="main-recentworks">
-                    <h1 className="main-title">
-                        <span className="divider"></span>
-                            <p>Promoções</p>
-                        <span className="divider"></span>    
-                    </h1>
+                    <Divider titulo="Promocoes"></Divider>
                     <Promocoes></Promocoes>
                 </div>
 

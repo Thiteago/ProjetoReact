@@ -1,5 +1,5 @@
 import '../styles/login.scss';
-import PreviousButton from '../components/PreviousButton';
+import PreviousButton from '../components/PreviousButton/PreviousButton';
 import { useState } from 'react';
 
 export function Login() {

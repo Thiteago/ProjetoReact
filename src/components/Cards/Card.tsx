@@ -1,6 +1,6 @@
-import '../styles/card.scss';
-import avatar from '../assets/img/cliente-av-fit.png';
-import iconcart from '../assets/icons/cart.svg';
+import '../Cards/card.scss';
+import avatar from '../../assets/img/cliente-av-fit.png';
+import iconcart from '../../assets/icons/cart.svg';
 
 export function Card(){
     return(
