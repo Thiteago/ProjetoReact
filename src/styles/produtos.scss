@@ -85,6 +85,9 @@ body{
             font-size: 25px;
         }
         padding-left: 25px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
 
         .wrapper-additional-info{
             display: flex;
@@ -134,8 +137,8 @@ body{
                 .botao:hover{
                         box-shadow:0 200px 100px -100px #F44336e2 inset;
                         transition:background 1s ease,box-shadow 2s ease;
-                      }
                 }
             }
         }
+    }
 }

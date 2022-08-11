@@ -9,8 +9,8 @@ export function Produto(){
             <img src={avatar} alt="" />
         </div>
         <div className='info-produto'>
-            <h1>Nome produto</h1>
             <div className='descricao-produto'>
+                <h1>Nome produto</h1>
                 <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit quasi non labore repudiandae mollitia voluptates culpa ipsam natus quae tenetur excepturi repellat vel temporibus harum, tempora optio maxime eaque alias.</p>
             </div>
             <div className="wrapper-additional-info">
