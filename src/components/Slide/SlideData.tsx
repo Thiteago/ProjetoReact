@@ -1,6 +1,6 @@
-import imagem from '../assets/img/produto-2.jpeg'
-import imagem2 from '../assets/img/produto-3.jpeg'
-import imagem3 from '../assets/img/produto-5.jpg'
+import imagem from '../../assets/img/produto-2.jpeg'
+import imagem2 from '../../assets/img/produto-3.jpeg'
+import imagem3 from '../../assets/img/produto-5.jpg'
 
 export const SlideData = [
     {

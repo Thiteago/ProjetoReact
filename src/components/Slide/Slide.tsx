@@ -1,6 +1,6 @@
-import '../styles/slide.scss'
+import '../Slide/slide.scss'
 import {useEffect, useState} from 'react'
-import nuvem from '../assets/img/nuvem-fundo.png'
+import nuvem from '../../assets/img/nuvem-fundo.png'
 import { SlideData } from './SlideData';
 
 

@@ -1,7 +1,6 @@
 .main-slide{
     display: flex;
     justify-content: center;
-    /**background-color: #ECECEC;**/
     height: 450px;
     overflow: hidden;
     border-bottom: 6px ridge #FFF;
@@ -84,7 +83,7 @@
         }
 
         .wrapper-slide.-mascara{
-            -webkit-mask-image: url(../assets/img/nuvem-fundo.png);
+            -webkit-mask-image: url(../../assets/img/nuvem-fundo.png);
             -webkit-mask-size: 918px;
             -webkit-mask-repeat: no-repeat;
             z-index: 2;
