@@ -1,9 +1,9 @@
-import '../styles/testemunhos.scss'
-import avatar from '../assets/img/cliente-av-fit.png'
+import './testemunhos.scss'
+import avatar from '../../assets/img/cliente-av-fit.png'
 import OwlCarousel from 'react-owl-carousel';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
-import { Divider } from './Divider/Divider';
+import { Divider } from '../Divider/Divider';
 
 
 export function Testemunhos(){

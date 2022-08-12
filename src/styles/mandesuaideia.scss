@@ -3,10 +3,26 @@
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    height: 100vh;
 
-    .logo{
-        padding-top: 15px;
-        width: 300px;
+    .container-logo{
+        display: flex;
+        flex-direction: column;
+        animation: myAnim 5s linear 0s infinite normal both;
+
+        .logo{
+            padding-top: 15px;
+            width: 300px;
+        }
+    }
+
+    .container-logo::after{
+        content: '';
+        width: 330px;
+        height: 1px;
+        border: 4px solid #dfdfdf;
+        border-radius: 62%;
+        animation: myAnim 5s linear 0s infinite normal both;
     }
 
     .container-questions{
@@ -16,4 +32,32 @@
         align-items: center;
     }
 
+}
+
+    @keyframes myAnim {
+    0% {
+        animation-timing-function: ease-out;
+        transform: scale(1);
+        transform-origin: center center;
+    }
+
+    10% {
+        animation-timing-function: ease-in;
+        transform: scale(0.91);
+    }
+
+    17% {
+        animation-timing-function: ease-out;
+        transform: scale(0.98);
+    }
+
+    33% {
+        animation-timing-function: ease-in;
+        transform: scale(0.87);
+    }
+
+    45% {
+        animation-timing-function: ease-out;
+        transform: scale(1);
+    }
 }
