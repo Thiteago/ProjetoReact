@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/ProjetoReact/static/css/main.4963d914.chunk.css",
-    "main.js": "/ProjetoReact/static/js/main.7af5f2c4.chunk.js",
-    "main.js.map": "/ProjetoReact/static/js/main.7af5f2c4.chunk.js.map",
+    "main.css": "/ProjetoReact/static/css/main.c1e0449d.chunk.css",
+    "main.js": "/ProjetoReact/static/js/main.7279528f.chunk.js",
+    "main.js.map": "/ProjetoReact/static/js/main.7279528f.chunk.js.map",
     "runtime-main.js": "/ProjetoReact/static/js/runtime-main.82797760.js",
     "runtime-main.js.map": "/ProjetoReact/static/js/runtime-main.82797760.js.map",
     "static/css/2.af2b21e0.chunk.css": "/ProjetoReact/static/css/2.af2b21e0.chunk.css",
@@ -10,7 +10,7 @@
     "static/js/2.68633938.chunk.js.map": "/ProjetoReact/static/js/2.68633938.chunk.js.map",
     "index.html": "/ProjetoReact/index.html",
     "static/css/2.af2b21e0.chunk.css.map": "/ProjetoReact/static/css/2.af2b21e0.chunk.css.map",
-    "static/css/main.4963d914.chunk.css.map": "/ProjetoReact/static/css/main.4963d914.chunk.css.map",
+    "static/css/main.c1e0449d.chunk.css.map": "/ProjetoReact/static/css/main.c1e0449d.chunk.css.map",
     "static/js/2.68633938.chunk.js.LICENSE.txt": "/ProjetoReact/static/js/2.68633938.chunk.js.LICENSE.txt",
     "static/media/header.scss": "/ProjetoReact/static/media/WinterSunday.8032053a.otf",
     "static/media/avatar-login.40edac93.png": "/ProjetoReact/static/media/avatar-login.40edac93.png",
@@ -19,6 +19,7 @@
     "static/media/cifrao.5a66dfab.svg": "/ProjetoReact/static/media/cifrao.5a66dfab.svg",
     "static/media/cliente-av-fit.34920132.png": "/ProjetoReact/static/media/cliente-av-fit.34920132.png",
     "static/media/foto-clau.4d5a47c4.png": "/ProjetoReact/static/media/foto-clau.4d5a47c4.png",
+    "static/media/gravatar-sorrindo.108e022c.png": "/ProjetoReact/static/media/gravatar-sorrindo.108e022c.png",
     "static/media/location.2f15e69d.svg": "/ProjetoReact/static/media/location.2f15e69d.svg",
     "static/media/lock.da0b5766.svg": "/ProjetoReact/static/media/lock.da0b5766.svg",
     "static/media/logo-clau.a1870fd7.png": "/ProjetoReact/static/media/logo-clau.a1870fd7.png",
@@ -33,7 +34,7 @@
     "static/js/runtime-main.82797760.js",
     "static/css/2.af2b21e0.chunk.css",
     "static/js/2.68633938.chunk.js",
-    "static/css/main.4963d914.chunk.css",
-    "static/js/main.7af5f2c4.chunk.js"
+    "static/css/main.c1e0449d.chunk.css",
+    "static/js/main.7279528f.chunk.js"
   ]
 }
