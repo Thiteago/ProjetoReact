@@ -1,7 +1,7 @@
 import { Header } from "../components/Header/Header";
 import { Footer } from "../components/Footer/Footer";
 import "../styles/mandesuaideia.scss"
-import mande from "../assets/img/mande_sua_ideia.png"
+import mande from "../assets/img/mande_sua_ideia.png";
 
 
 export function MandeSuaIdeia(){
