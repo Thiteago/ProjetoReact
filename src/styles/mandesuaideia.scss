@@ -1,4 +1,4 @@
-.container-content{
+.container-logo{
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -8,7 +8,7 @@
     overflow-x: hidden;
     transition: ease-in-out 7s all;
 
-    .container-logo{
+    .wrapper-logo{
         display: flex;
         flex-direction: column;
         animation: myAnim 7s forwards;
@@ -22,7 +22,7 @@
         }
     }
 
-    .container-logo::after{
+    .wrapper-logo::after{
         content: '';
         width: 330px;
         height: 1px;
@@ -39,12 +39,79 @@
     }
 }
 
-.container-form{
-    width: 700px;
+.container-content{
+    width: 100%;
+    display: none;
     height: 150px;
-    background-color: red;
-    transition: ease-in-out 7s all;
-    animation: myAnim2 7s forwards;
+    transition: ease-in-out 1.5s all;
+    animation: myAnim2 1.5s forwards;
+    justify-content: center;
+    align-items: center;
+
+    .container-form{
+        width: 800px;
+        height: 400px;
+        background-color: rgb(230, 230, 230);
+        display: flex;
+        border-radius: 20%;
+
+        .gravatar-image{
+            display: flex;
+            height: 100%;
+            align-items: center;
+            >img{
+                width: 200px;
+            }
+        }
+
+        .wrapper-text{
+            
+            .question{
+                background-color: white;
+                border: 10px solid white;
+                padding-left: 15px;
+                padding-top: 10px;
+            }
+
+            .container-answers{
+                height: 68%;
+                display: flex;
+                flex-direction: column;
+
+                .wrapper-answer{
+                    width: 570px;
+                    display: flex;
+                    justify-content: flex-end;
+
+                    .word{
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                        margin-top: 20px;
+                        background-color: black;
+                        color: white;
+                        padding: 10px;
+                    }
+
+                    .answer{
+                        width: 80%;
+                        padding-left: 5px;
+                        height: 45px;
+                        align-items: center;
+                        display: flex;
+                        background: white;
+                        margin-top: 20px;
+                        border: 2px solid black;
+                    }
+                }
+
+                .answer:hover{
+                    color: white;
+                    background-color: grey;
+                }
+            }
+        }
+    }
 }
 
 @keyframes myAnim {
