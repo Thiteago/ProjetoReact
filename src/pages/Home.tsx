@@ -1,7 +1,7 @@
 import { Header } from "../components/Header/Header";
 import Slide from '../components/Slide/Slide';
 import { SlideData } from "../components/Slide/SlideData";
-import { Testemunhos } from "../components/Testemunhos";
+import { Testemunhos } from "../components/Testemunho/Testemunhos";
 import {Footer} from '../components/Footer/Footer'
 import '../styles/home.scss'
 import {Promocoes} from '../components/Promocoes/Promocoes';

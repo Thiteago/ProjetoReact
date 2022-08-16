@@ -4,6 +4,7 @@ import { MandeSuaIdeia } from './pages/MandeSuaIdeia';
 import { Produtos } from './pages/Produtos';
 import { Sobre } from './pages/Sobre';
 import { Login } from './pages/Login';
+import { Venda } from './pages/Venda';
 
   function App() {
   return (
@@ -14,6 +15,7 @@ import { Login } from './pages/Login';
                 <Route path="/MandeSuaIdeia" component={MandeSuaIdeia}/>
                 <Route path="/Sobre" component={Sobre}/>
                 <Route path="/Login" component={Login}/>
+                <Route path="/Venda" component={Venda}/>
             </Switch>
     </HashRouter>
   );

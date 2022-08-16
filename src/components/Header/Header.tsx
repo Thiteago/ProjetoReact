@@ -31,7 +31,7 @@ export function Header(){
             </nav>
             <div className="wrapper-login">
                 <Link to={"./Login"}><a className="main-action -second">Login</a></Link>
-                <a className="main-action -third">ou Cadastre-se</a>
+                <Link to={"./Login"}><a className="main-action -third">ou Cadastre-se</a></Link>
                 <img src={avatar} alt="imagem para cadastro" height="105" className="img_avatar"/>
             </div>
         </header>
