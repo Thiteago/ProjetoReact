@@ -4,19 +4,23 @@
     background-color: whitesmoke;
     display: flex;
     justify-content: center;
+    align-items: center;
+    flex-direction: column;
 
     .container-info{
         width: 960px;
-        height: 100%;
-        padding-top: 150px;
+        height: 70%;
+        padding-top: 80px;
+        padding-left: 10px;
         display: flex;
         border-bottom-right-radius: 10%;
         background-color: white;
         gap: 40px;
 
         .imagem-produto{
-            width: 300px;
+            width: 375px;
             display: flex;
+            padding-bottom: 20px;
 
             .carrossel-imagem{
                 .img-small{
@@ -27,13 +31,15 @@
             }
 
             .imagem-principal{
+                width: 70%;
                 >img{
-                    width: 300px;
+                    max-width: 300px;
+                    width: 100%;
                 }
             }
         }
         .info-produto{
-            margin-left: 170px;
+            margin-left: 100px;
             display: flex;
             flex-direction: column;
             height: 300px;
@@ -76,5 +82,13 @@
             }
            
         }
+    }
+
+    .more-info{
+        width: 960px;
+        height: 100px;
+        background-color: white;
+        border-top-right-radius: 25%;
+        margin-top: 10px;
     }
 }

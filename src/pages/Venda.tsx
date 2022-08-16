@@ -38,6 +38,9 @@ export function Venda(){
                         </div>
                     </div>
                 </div>
+                <div className='more-info'>
+                        
+                </div>
 
 
             </section>

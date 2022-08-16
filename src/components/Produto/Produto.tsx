@@ -1,6 +1,7 @@
 import '../Produto/produto.scss';
 import avatar from '../../assets/img/cliente-av-fit.png'
 import cifrao from '../../assets/icons/cifrao.svg'
+import {Link} from 'react-router-dom';
 
 export function Produto(){
     return(
@@ -23,7 +24,7 @@ export function Produto(){
                     </div>
                 </div>
                 <div className='buy-button'>
-                    <button className="botao">Alugar</button>
+                    <Link to={"./Venda"}><button className="botao">Alugar</button></Link>
                 </div>
             </div>
         </div>
