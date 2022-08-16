@@ -6,7 +6,7 @@ import '../styles/Venda.scss'
 export function Venda(){
     return(
         <div>
-            <Header></Header>
+            <Header tamanho='pequeno'></Header>
             <section className="container-produto">
                 <div className="container-info">
                     <aside className='imagem-produto'>
@@ -30,7 +30,7 @@ export function Venda(){
                             <div className='info-situation'>Disponivel apenas para Aluguel</div>
                             <div className='price-info'>
                                 <h2>R$ 25</h2>
-                                <label>por Dia</label>
+                                <label>por dia</label>
                             </div>
                             <div className='wrapper-button'>
                                 <button className='button'>Alugar</button>
@@ -39,7 +39,15 @@ export function Venda(){
                     </div>
                 </div>
                 <div className='more-info'>
-                        
+                    <nav className="wrapper-menu">
+                        <ul className='container-menu'>
+                            <li className='ativo'>Descrição</li>
+                            <li>Especificações Técnicas</li>
+                            <li>Avaliações</li>
+                        </ul>
+                    </nav>
+
+                    <p className='container-descricao'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nisi architecto suscipit vel doloremque deserunt ut commodi reprehenderit quas nemo. Eaque nesciunt exercitationem, quisquam eum impedit ex maxime ipsum incidunt obcaecati? Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reiciendis quasi vitae placeat sed facilis, odio dolor inventore laboriosam perspiciatis harum, atque voluptates itaque repellat quisquam nisi consequatur sunt voluptas id? Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem est aliquam, quas a qui amet quis adipisci nulla dolor doloremque, illum cumque sed error pariatur tenetur ipsam harum sint ad.</p>
                 </div>
 
 

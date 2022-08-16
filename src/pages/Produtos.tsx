@@ -8,7 +8,7 @@ import '../styles/produtos.scss';
 export function Produtos(){
     return (
         <>
-            <Header></Header>
+            <Header tamanho="grande"></Header>
             
             <section className="product-grid">
                 <Busca></Busca>

@@ -7,7 +7,7 @@ import '../styles/sobre.scss';
 export function Sobre(){
     return(
         <>
-        <Header></Header>
+        <Header tamanho="grande"></Header>
         <section className="main-sobre">
         <div className="wrapper-sobre">
             <h1>Sobre</h1>

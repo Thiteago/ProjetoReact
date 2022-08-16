@@ -23,7 +23,7 @@ export function MandeSuaIdeia(){
     
     return(
         <>
-            <Header></Header>
+            <Header tamanho='grande'></Header>
             <div ref={teste} className="container-logo">
                 <div className="wrapper-logo">
                     <img className="logo" src={mande} alt="" />

@@ -13,7 +13,7 @@ import { BuyInfo } from "../components/BuyInformation/BuyInfo";
 export function Home(){
     return(
         <div className="container-home">
-            <Header></Header>
+            <Header tamanho="grande"></Header>
             <Slide slides={SlideData}></Slide>
            
             <div className="container-Content">
