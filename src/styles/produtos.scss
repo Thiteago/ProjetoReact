@@ -10,7 +10,7 @@ body{
     width: 80%;
     height: 100%;
     background-color: #fbf7fb;
-    margin: 20px 0;
+
 }
 
 .product-grid{
@@ -21,7 +21,23 @@ body{
     flex-direction: column;
 
     .wrapper-produtos{
-        margin: 0 15px;
+        margin: 20px 15px;
         display: flex;
+
+        .container-filter{
+            height: auto;
+            background-color: white;
+            border-top: 1px solid grey;
+            border-right: 15px solid;
+            border-image: linear-gradient(to bottom,rgb(255, 13, 223), rgba(0, 0, 0, 0)) 1 100%;
+
+            .wrapper-filter{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: left;
+            }
+        }
     }
 }

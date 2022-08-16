@@ -16,6 +16,15 @@ export function Produtos(){
                 <div className="wrapper-produtos">
                     <aside className="container-filter">
                         <h1>Filtrar</h1>
+
+                        <div className="wrapper-filter">
+                            <div>
+                                <input type="checkbox" /> <label>Alugados</label>
+                            </div>
+                            <div>
+                                <input type="checkbox" /> <label>A Venda</label>
+                            </div>
+                        </div>
                     </aside>
                     <div className="container-produtos">
                         <Produto></Produto>
