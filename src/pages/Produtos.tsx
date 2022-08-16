@@ -8,18 +8,21 @@ import '../styles/produtos.scss';
 export function Produtos(){
     return (
         <>
-            <Header tamanho="grande"></Header>
+            <Header tamanho="pequeno"></Header>
             
             <section className="product-grid">
                 <Busca></Busca>
 
-                <aside className="container-filter">
-                    <h1>Filtrar</h1>
-                </aside>
-                <div className="container-produtos">
-                    <Produto></Produto>
-                    <Produto></Produto>
+                <div className="wrapper-produtos">
+                    <aside className="container-filter">
+                        <h1>Filtrar</h1>
+                    </aside>
+                    <div className="container-produtos">
+                        <Produto></Produto>
+                        <Produto></Produto>
+                    </div>
                 </div>
+                
             </section>
 
 

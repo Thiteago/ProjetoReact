@@ -16,6 +16,12 @@ body{
 .product-grid{
     display: flex;
     text-align: center;
-    padding-top: 150px;
+    padding-top: 15px;
     padding-right: 10px;
+    flex-direction: column;
+
+    .wrapper-produtos{
+        margin: 0 15px;
+        display: flex;
+    }
 }
