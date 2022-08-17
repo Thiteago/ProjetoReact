@@ -62,13 +62,17 @@
 
 	.header{
 		display: flex;
-		justify-content: space-between;
 		width: 100%;
+		position: relative;
+		justify-content: center;
+
+		>a{
+			position: absolute;
+			left: 0;
+		}
 
 		.title{
-			text-align: center;
 			padding-top: 20px;
-			padding-right: 100px;
 			>h1{
 				font-weight: bold;
 			}
@@ -77,16 +81,25 @@
 	}
 
 	.wrapper-form{
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		.form-subscribe{
 			display: flex;
-			gap: 15px;
 			flex-wrap: wrap;
+			justify-content: center;
+			gap: 20px;
+			padding-bottom: 20px;
 			>input{
 				background-color: #eee;
 				border: none;
 				padding: 12px 15px;
-				margin: 8px 0;
 				width: 450px;
+			}
+
+			.submit{
+				background-color: #FF4B2B;
+				color: white;
 			}
 		}
 	}

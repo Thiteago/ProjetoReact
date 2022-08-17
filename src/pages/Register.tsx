@@ -1,11 +1,17 @@
 import '../styles/register.scss';
 import PreviousButton from '../components/PreviousButton/PreviousButton';
-import InputMask from 'react-input-mask';
-import { useState } from 'react';
+import InputMask from 'react-input-mask'
+import axios from 'axios'
+import {useForm} from 'react-hook-form'
 
 
 export function Register() {
-
+    const {register, handleSubmit} = useForm();
+    const addPost = data => axios.post("http://localhost:3333/usuario", data).then(() =>{
+        console.log("Deu tudo certo")
+    }).catch((e) =>{
+        console.error(e)
+    })
 
     return (
         <>
@@ -19,13 +25,22 @@ export function Register() {
                     </div>
                     <div className='wrapper-form'>
                         {/*nome, dataNascimento, email, senha, cpf, rua, numeroRua, bairro, cidade, cep, numeroTel, numeroCel */}
-                        <form className='form-subscribe' action="#">
-                            <input placeholder='NOME' type="text" />
-                            <input placeholder='EMAIL' type="text" />
-                            <input type="date" />
-                            <input placeholder="SENHA" type="password" />
-                            <input placeholder="CONFIRME A SENHA" type="password" />
-
+                        <form  onSubmit={handleSubmit(addPost)} className='form-subscribe' action="#">
+                            <input placeholder='NOME' type="text" required {...register("nome")}/>
+                            <input placeholder='EMAIL' type="text" required {...register("email")}/>
+                            <input type="date" required {...register("dataNascimento")}/>
+                            <input placeholder="SENHA" type="password" required {...register("senha")}/>
+                            <InputMask placeholder="CPF" mask="999.999.999-99" required {...register("cpf")}></InputMask>
+                            <input placeholder="CONFIRME A SENHA" type="password" required />
+                            <input placeholder='Rua' type="Text" required {...register("rua")}/>
+                            <input placeholder='Numero' type="number" required {...register("numeroRua")}/>
+                            <input placeholder='Bairro' type="text" required {...register("bairro")}/>
+                            <input placeholder='Cidade' type="text" required {...register("cidade")}/>
+                            <InputMask placeholder='CEP' mask="99999-999" type="text" required {...register("cep")}/>
+                            <InputMask placeholder='Numero de Telefone' mask="(99) 99999999" type="text" {...register("numeroTel")}/>
+                            <InputMask placeholder='Numero de Celular' mask="(99) 999999999" type="text" required {...register("numeroCel")}/>
+                            
+                            <input className='submit' type="submit" />
                         </form>
                     </div>
                 </div>
