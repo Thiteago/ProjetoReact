@@ -1,7 +1,11 @@
 import '../styles/register.scss';
 import PreviousButton from '../components/PreviousButton/PreviousButton';
+import InputMask from 'react-input-mask';
+import { useState } from 'react';
+
 
 export function Register() {
+
 
     return (
         <>
@@ -18,6 +22,10 @@ export function Register() {
                         <form className='form-subscribe' action="#">
                             <input placeholder='NOME' type="text" />
                             <input placeholder='EMAIL' type="text" />
+                            <input type="date" />
+                            <input placeholder="SENHA" type="password" />
+                            <input placeholder="CONFIRME A SENHA" type="password" />
+
                         </form>
                     </div>
                 </div>

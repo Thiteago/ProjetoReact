@@ -78,12 +78,15 @@
 
 	.wrapper-form{
 		.form-subscribe{
+			display: flex;
+			gap: 15px;
+			flex-wrap: wrap;
 			>input{
 				background-color: #eee;
 				border: none;
 				padding: 12px 15px;
 				margin: 8px 0;
-				width: 100%;
+				width: 450px;
 			}
 		}
 	}
