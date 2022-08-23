@@ -3,12 +3,14 @@ import PreviousButton from '../components/PreviousButton/PreviousButton';
 import InputMask from 'react-input-mask'
 import axios from 'axios'
 import {useForm} from 'react-hook-form'
+import {useHistory} from "react-router-dom"
 
 
 export function Register() {
+    const history = useHistory();
     const {register, handleSubmit} = useForm();
     const addPost = data => axios.post("http://localhost:3333/usuario", data).then(() =>{
-        console.log("Deu tudo certo")
+        history.push("/Login")
     }).catch((e) =>{
         console.error(e)
     })

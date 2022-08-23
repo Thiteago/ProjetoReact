@@ -1,11 +1,30 @@
 import '../styles/login.scss';
 import PreviousButton from '../components/PreviousButton/PreviousButton';
-import { useState } from 'react';
-import {Link} from 'react-router-dom'
+import { useRef, useState } from 'react';
+import {Link, useHistory} from 'react-router-dom'
+import {useForm} from "react-hook-form"
+import axios from 'axios';
+
 
 export function Login() {
-
     const [current, setCurrent] = useState("container");
+    const {register, handleSubmit} = useForm();
+    const history = useHistory();
+
+    const message = useRef<HTMLParagraphElement>(null);
+
+    const loginPost = data => axios.post("http://localhost:3333/login", data).then((response) =>{
+        if(response.status == 201){
+            console.log('foi')
+            history.push("./")
+        }
+    }
+    ).catch(() => {
+        if(message.current != null){
+            message.current.style.display = 'block';
+        }
+    })
+
 
     return (
         <>
@@ -19,11 +38,12 @@ export function Login() {
                     </div>
                     <div className="form-container sign-in-container">
                     <PreviousButton endereco='./'></PreviousButton>
-                        <form className="form" action="#">
+                        <form onSubmit={handleSubmit(loginPost)} className="form" action="#">
                             <h1 className="h1">Login</h1>
                             <span className="span">acesse sua conta</span>
-                            <input className="input" type="email" placeholder="Email" />
-                            <input className="input" type="password" placeholder="Senha" />
+                            <input className="input"  type="email" placeholder="Email" {...register("email")} />
+                            <input className="input" type="password" placeholder="Senha" {...register("senha")}/>
+                            <p ref={message} style={{color: 'red', display: 'none'}}>Credenciais Inválidas</p>
                             <a className="a" href="#">Esqueceu a senha?</a>
                             <button className="button">Login</button>
                         </form>
