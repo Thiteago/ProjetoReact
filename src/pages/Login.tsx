@@ -1,31 +1,28 @@
 import '../styles/login.scss';
 import PreviousButton from '../components/PreviousButton/PreviousButton';
-import { useRef, useState } from 'react';
-import {Link, useHistory} from 'react-router-dom'
-import {useForm} from "react-hook-form"
-import axios from 'axios';
+import { useContext, useRef, useState } from 'react';
+import {Link, Navigate, useNavigate} from 'react-router-dom';
+import { AuthContext } from '../context/auth';
 
 
 export function Login() {
     const [current, setCurrent] = useState("container");
-    const {register, handleSubmit} = useForm();
-    const history = useHistory();
+    const [email, setEmail] = useState("");
+    const [senha, setSenha] = useState("");
+    const {login, signed} = useContext(AuthContext);
 
     const message = useRef<HTMLParagraphElement>(null);
 
-    const loginPost = data => axios.post("http://localhost:3333/login", data).then((response) =>{
-        if(response.status == 201){
-            console.log('foi')
-            history.push("./")
-        }
+    const handleLogin = async (e) => {
+        e.preventDefault();
+        const data = {
+            email, senha,
+        };
+        await login(data);
     }
-    ).catch(() => {
-        if(message.current != null){
-            message.current.style.display = 'block';
-        }
-    })
 
 
+    if(!signed){
     return (
         <>
             <div className="body">
@@ -33,16 +30,16 @@ export function Login() {
                     <div className="form-container sign-up-container">
                         <form className="form" action="#">
                             <h1 className="h1">Criar uma Conta</h1>
-                            <Link to={"./Registro"}><button className="button">Cadastrar-se</button></Link>
+                            <Link to={"/Registro"}><button className="button">Cadastrar-se</button></Link>
                         </form>
                     </div>
                     <div className="form-container sign-in-container">
-                    <PreviousButton endereco='./'></PreviousButton>
-                        <form onSubmit={handleSubmit(loginPost)} className="form" action="#">
+                    <PreviousButton endereco='/'></PreviousButton>
+                        <form onSubmit={handleLogin} className="form" action="#">
                             <h1 className="h1">Login</h1>
                             <span className="span">acesse sua conta</span>
-                            <input className="input"  type="email" placeholder="Email" {...register("email")} />
-                            <input className="input" type="password" placeholder="Senha" {...register("senha")}/>
+                            <input className="input" value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email" />
+                            <input className="input" value={senha} onChange={(e) => setSenha(e.target.value)} type="password" placeholder="Senha" />
                             <p ref={message} style={{color: 'red', display: 'none'}}>Credenciais Inválidas</p>
                             <a className="a" href="#">Esqueceu a senha?</a>
                             <button className="button">Login</button>
@@ -67,5 +64,7 @@ export function Login() {
                 </div>
             </div>
         </>
-    )
+    )}else {
+        return <Navigate to="/" />
+    }
 }

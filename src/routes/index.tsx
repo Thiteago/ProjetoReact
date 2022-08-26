@@ -1,4 +1,4 @@
-import {HashRouter, Route, Switch} from 'react-router-dom'
+import {HashRouter, Route, Routes} from 'react-router-dom'
 import {Home} from "../pages/Home"
 import { MandeSuaIdeia } from '../pages/MandeSuaIdeia';
 import { Produtos } from '../pages/Produtos';
@@ -8,18 +8,18 @@ import { Venda } from '../pages/Venda';
 import { Register } from '../pages/Register'
 
 
-const RoutesApp = () => {
+export const RoutesApp = () => {
     return(
         <HashRouter>
-            <Switch>
-                <Route path="/" exact component={Home}/>
-                <Route path="/Produtos" component={Produtos}/>
-                <Route path="/MandeSuaIdeia" component={MandeSuaIdeia}/>
-                <Route path="/Sobre" component={Sobre}/>
-                <Route path="/Login" component={Login}/>
-                <Route path="/Registro" component={Register}/>
-                <Route path="/Venda" component={Venda}/>
-            </Switch>
+            <Routes>
+                <Route path="/" element={<Home/>}/>
+                <Route path="/Produtos" element={<Produtos/>}/>
+                <Route path="/MandeSuaIdeia" element={<MandeSuaIdeia/>}/>
+                <Route path="/Sobre" element={<Sobre/>}/>
+                <Route path="/Login" element={<Login/>}/>
+                <Route path="/Registro" element={<Register/>}/>
+                <Route path="/Venda" element={<Venda/>}/>
+            </Routes>
     </HashRouter>
     )
 }

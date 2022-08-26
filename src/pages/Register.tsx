@@ -1,33 +1,39 @@
 import '../styles/register.scss';
 import PreviousButton from '../components/PreviousButton/PreviousButton';
 import InputMask from 'react-input-mask'
-import axios from 'axios'
 import {useForm} from 'react-hook-form'
-import {useHistory} from "react-router-dom"
+import {useNavigate} from "react-router-dom"
+import { api } from '../services/api';
 
 
 export function Register() {
-    const history = useHistory();
+    const history = useNavigate();
     const {register, handleSubmit} = useForm();
-    const addPost = data => axios.post("http://localhost:3333/usuario", data).then(() =>{
-        history.push("/Login")
-    }).catch((e) =>{
-        console.error(e)
-    })
+
+    const handleSaveUser = (e) => {
+        const data = e;
+        const response = api.post("/NovoUsuario", data).then((response) =>{
+            console.log(response);
+            if(response.status == 201){
+                 history("/Login")
+            }
+        });
+    }
+    
 
     return (
         <>
             <div className="body">
                 <div className="container">
                     <div className='header'>
-                        <PreviousButton endereco='./Login'></PreviousButton>
+                        <PreviousButton endereco='/Login'></PreviousButton>
                         <div className="title">
                             <h1>Registre-se</h1>
                         </div>
                     </div>
                     <div className='wrapper-form'>
                         {/*nome, dataNascimento, email, senha, cpf, rua, numeroRua, bairro, cidade, cep, numeroTel, numeroCel */}
-                        <form  onSubmit={handleSubmit(addPost)} className='form-subscribe' action="#">
+                        <form  onSubmit={handleSubmit(handleSaveUser)} className='form-subscribe' action="#">
                             <input placeholder='NOME' type="text" required {...register("nome")}/>
                             <input placeholder='EMAIL' type="text" required {...register("email")}/>
                             <input type="date" required {...register("dataNascimento")}/>
