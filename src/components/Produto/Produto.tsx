@@ -24,7 +24,7 @@ export function Produto(){
                     </div>
                 </div>
                 <div className='buy-button'>
-                    <Link to={"./Venda"}><button className="botao">Alugar</button></Link>
+                    <Link to={"/Venda"}><button className="botao">Alugar</button></Link>
                 </div>
             </div>
         </div>

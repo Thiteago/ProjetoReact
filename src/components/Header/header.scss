@@ -63,12 +63,18 @@
         font-size: 1.5em;
         font-family: 'Viga', Arial, Helvetica, sans-serif;
         color: white;
+        text-align: end;
+        padding: 10px;
     }
 
     .-logado{
-        align-items: baseline;
+        align-items: center;
         justify-content: center;
-        width: 300px;
+        flex-direction: inherit;
+
+        >img{
+            position: inherit;
+        }
     }
 
     .main-action.-third{

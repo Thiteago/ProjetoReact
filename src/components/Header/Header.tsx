@@ -13,7 +13,8 @@ interface HeaderProps{
 
 export function Header(props:HeaderProps){
     const logo = useRef<HTMLImageElement>(null);
-    const {signed, user} = useContext(AuthContext)
+    const {signed, user, logOut} = useContext(AuthContext)
+
 
     useEffect(() => {
         if(props.tamanho == "grande"){
@@ -28,7 +29,6 @@ export function Header(props:HeaderProps){
             }
         }
     }, [])
-
 
     if(!signed){
     return(
@@ -60,7 +60,8 @@ export function Header(props:HeaderProps){
             </nav>
             
             <div className="wrapper-login -logado">
-                <Link to={"/Login"} className="main-action -secondlogado">Ola! {user.nome}</Link>
+                <Link to={"/Login"} className="main-action -secondlogado">Ola! <br /> {user.nome}</Link>
+                <Link to={"/"}>pepino</Link>
                 <img src={avatar} alt="imagem para cadastro" height="105" className="img_avatar"/>
             </div>
         </header>
