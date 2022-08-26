@@ -15,10 +15,14 @@ export function Login() {
 
     const handleLogin = async (e) => {
         e.preventDefault();
-        const data = {
-            email, senha,
-        };
-        await login(data);
+
+        const result = await login(email, senha);
+
+        if(result == "erro"){
+            if(message.current != null){
+                message.current.style.display = 'block';
+            }
+        }
     }
 
 

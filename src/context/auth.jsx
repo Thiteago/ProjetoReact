@@ -25,7 +25,7 @@ export const AuthProvider = ({ children }) => {
     });
 
     if (response.data.error) {
-      alert(response.data.error);
+      return 'erro';
     } else {
       setUser(response.data.user);
       api.defaults.headers.common[
