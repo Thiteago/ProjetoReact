@@ -1,7 +1,7 @@
 import '../styles/login.scss';
 import PreviousButton from '../components/PreviousButton/PreviousButton';
 import { useContext, useRef, useState } from 'react';
-import {Link, Navigate, useNavigate} from 'react-router-dom';
+import {Link, Navigate} from 'react-router-dom';
 import { AuthContext } from '../context/auth';
 
 

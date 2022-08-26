@@ -38,12 +38,6 @@
             z-index: 0;
         }
 
-        >a{
-            color: #fff;
-            line-height: 24,19px;
-            font-family: 'Viga', Arial, Helvetica, sans-serif;
-            font-size: 15px;
-        }
     }
 
     .main-action{
@@ -55,14 +49,26 @@
         text-decoration: none;
     }
 
-    .main-action.-second{
+    .-second{
         color: #fff;
         line-height: 24,19px;
         font-family: 'Viga', Arial, Helvetica, sans-serif;
-        font-size: 38px;
+        font-size: 2em;
         padding-top: 0px;
         padding-right: 99px;
         padding-left: 15px;
+    }
+
+    .-secondlogado{
+        font-size: 1.5em;
+        font-family: 'Viga', Arial, Helvetica, sans-serif;
+        color: white;
+    }
+
+    .-logado{
+        align-items: baseline;
+        justify-content: center;
+        width: 300px;
     }
 
     .main-action.-third{

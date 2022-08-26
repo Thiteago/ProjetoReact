@@ -12,7 +12,7 @@ export function Register() {
 
     const handleSaveUser = (e) => {
         const data = e;
-        const response = api.post("/NovoUsuario", data).then((response) =>{
+        api.post("/NovoUsuario", data).then((response) =>{
             console.log(response);
             if(response.status == 201){
                  history("/Login")
