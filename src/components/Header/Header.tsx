@@ -11,10 +11,13 @@ interface HeaderProps{
     tamanho: string;
 }
 
+const ContainerOptionsProfile = styled.div`
+    display: flex;
+    gap: 10px;
+    padding-bottom: 10px;
+`
+
 const SairBTN = styled(Link)`
-    position: absolute;
-    bottom: 0;
-    right: 95px;
     color: white;
     font-family: 'Viga';
 
@@ -77,8 +80,10 @@ export function Header(props:HeaderProps){
             
             <div className="wrapper-login -logado">
                 <Link to={"/Login"} className="main-action -secondlogado">Ola! <br /> {user.nome}</Link>
-                <SairBTN to={"/"} onClick={handleClick}>Sair</SairBTN>
-                <img src={avatar} alt="imagem para cadastro" height="105" className="img_avatar"/>
+                <ContainerOptionsProfile>
+                    <SairBTN to={"/Perfil"}>Minha conta</SairBTN>
+                    <SairBTN to={"/"} onClick={handleClick}>Sair</SairBTN>
+                </ContainerOptionsProfile>
             </div>
         </header>
         )

@@ -63,15 +63,16 @@
         font-size: 1.5em;
         font-family: 'Viga', Arial, Helvetica, sans-serif;
         color: white;
-        text-align: end;
-        padding: 10px;
-        margin-bottom: 15px;
+        padding: 10px 5px 0 20px;
     }
 
     .-logado{
         align-items: center;
         justify-content: center;
-        flex-direction: inherit;
+        border-top-left-radius: 30px;
+        border-bottom-left-radius: 30px;
+        border-top-right-radius: 0px;
+        border-bottom-right-radius: 0px;
 
         >img{
             position: inherit;

@@ -9,7 +9,6 @@ export const AuthProvider = ({ children }) => {
   const logOut = () => {
     localStorage.clear();
     setUser(null);
-    return 'LogOut'
   };
 
   useEffect(() => {
