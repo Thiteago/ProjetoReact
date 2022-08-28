@@ -9,8 +9,9 @@ export const AuthProvider = ({ children }) => {
   const logOut = () => {
     localStorage.clear();
     setUser(null);
-    return 'oi';
+    return 'LogOut'
   };
+
   useEffect(() => {
     const loadingStorageData = async () => {
       const storageUser = localStorage.getItem('@Auth: user');

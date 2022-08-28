@@ -5,16 +5,32 @@ import logobig from '../../assets/img/logo-clau.png'
 import avatar from '../../assets/img/avatar-login.png'
 import { useRef, useEffect, useContext } from 'react'
 import { AuthContext } from '../../context/auth'
+import styled from 'styled-components'
 
 interface HeaderProps{
     tamanho: string;
 }
 
+const SairBTN = styled(Link)`
+    position: absolute;
+    bottom: 0;
+    right: 95px;
+    color: white;
+    font-family: 'Viga';
+
+    &:hover{
+        color: black
+    }
+`
 
 export function Header(props:HeaderProps){
     const logo = useRef<HTMLImageElement>(null);
     const {signed, user, logOut} = useContext(AuthContext)
+ 
 
+    function handleClick(e){
+        logOut();
+    }
 
     useEffect(() => {
         if(props.tamanho == "grande"){
@@ -61,7 +77,7 @@ export function Header(props:HeaderProps){
             
             <div className="wrapper-login -logado">
                 <Link to={"/Login"} className="main-action -secondlogado">Ola! <br /> {user.nome}</Link>
-                <Link to={"/"}>pepino</Link>
+                <SairBTN to={"/"} onClick={handleClick}>Sair</SairBTN>
                 <img src={avatar} alt="imagem para cadastro" height="105" className="img_avatar"/>
             </div>
         </header>

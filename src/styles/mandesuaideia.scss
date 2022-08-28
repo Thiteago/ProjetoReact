@@ -11,8 +11,8 @@
     .wrapper-logo{
         display: flex;
         flex-direction: column;
-        animation: myAnim 7s forwards;
-        position: absolute;
+        animation: myAnim 4s forwards;
+        position: fixed;
 
         .logo{
             padding-top: 15px;
@@ -118,16 +118,16 @@
 
 @keyframes myAnim {
     0% {
-        left: -1000px;
+        left: -100%;
     }
 
     50%{
-        left: 550px;
+        left: 50%;
         transform: scale(2.4);
     }
 
     100% {  
-        left: 1500px;
+        left: 100%;
     }
 }
 
