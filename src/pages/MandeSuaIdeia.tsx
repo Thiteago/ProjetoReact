@@ -39,7 +39,7 @@ export function MandeSuaIdeia(){
     const teste = useRef<HTMLDivElement>(null);
     const ideiaReference = useRef<HTMLDivElement>(null);
     const {signed} = useContext(AuthContext)
-    const [pergunta, setPergunta] = useState('');
+    const [pergunta, setPergunta] = useState();
 
     const arrayRespostas: string[] = [];
     const pergunta1 = new Pergunta();
@@ -51,6 +51,9 @@ export function MandeSuaIdeia(){
         setPergunta(per)
         arrayRespostas.push(per, res)
     }
+
+
+    
 
 
 
