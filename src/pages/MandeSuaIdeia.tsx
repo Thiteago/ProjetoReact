@@ -1,9 +1,9 @@
-import {useRef, useEffect, useContext} from 'react';
+import {useRef, useEffect, useContext, useState} from 'react';
 import { Header } from "../components/Header/Header";
 import "../styles/mandesuaideia.scss"
 import background from "../assets/img/background.png"
 import mande from "../assets/img/mande_sua_ideia.png";
-import { IdeiaAnswers, IdeiaQuestion } from '../components/IdeiaQuestion/ideiaquestion';
+import { IdeiaQuestion } from '../components/IdeiaQuestion/ideiaquestion';
 import { AuthContext } from '../context/auth';
 import styled from "styled-components"
 
@@ -25,12 +25,34 @@ const ContainerContent = styled.section`
     background-attachment: fixed;
     background-size: cover;
 `
-
+class Pergunta{
+    titulo: string | undefined;
+    opcao1: string | undefined;
+    opcao2: string | undefined;
+    opcao3: string | undefined;
+    opcao4: string | undefined
+    
+    
+}
 
 export function MandeSuaIdeia(){
     const teste = useRef<HTMLDivElement>(null);
     const ideiaReference = useRef<HTMLDivElement>(null);
     const {signed} = useContext(AuthContext)
+    const [pergunta, setPergunta] = useState('');
+
+    const arrayRespostas: string[] = [];
+    const pergunta1 = new Pergunta();
+    pergunta1.titulo = 'Vamos começar, voce está interessado em um produto ou em um Kit (Topo de bolo, painel decorativo , etc..)?'
+    pergunta1.opcao1 = 'Produto'
+    pergunta1.opcao2 = 'Kit'
+
+    const childToParent = (per, res) => {
+        setPergunta(per)
+        arrayRespostas.push(per, res)
+    }
+
+
 
     useEffect(() =>{
         setInterval(() =>{
@@ -52,8 +74,9 @@ export function MandeSuaIdeia(){
                         </div>
                     </div> */}
 
-                    <IdeiaQuestion ideiaReference={ideiaReference}></IdeiaQuestion>
-                    <IdeiaAnswers titulo='oi, deu certo' opcao1='Abacaxi ?' opcao2='Sereia' opcao3='' opcao4=''></IdeiaAnswers>
+
+                    <IdeiaQuestion ideiaReference={ideiaReference} titulo={pergunta1.titulo} opcao1={pergunta1.opcao1} opcao2={pergunta1.opcao2} opcao3={pergunta1.opcao3} opcao4={pergunta1.opcao4} childToParent={childToParent}></IdeiaQuestion>                 
+
                 </ContainerContent>
             </>
         );

@@ -4,9 +4,15 @@ import { Answer, ContainerAnswers, ContainerContent, ContainerForm, GravatarImag
 
 interface IdeiaQuestionProps{
     ideiaReference: RefObject<HTMLDivElement>;
+    titulo: string;
+    opcao1: string;
+    opcao2?: string;
+    opcao3?: string;
+    opcao4?: string;
+    childToParent: any;
 }
 
-export function IdeiaQuestion({ideiaReference}: IdeiaQuestionProps){
+export function IdeiaQuestion({ideiaReference, titulo,opcao1, opcao2,opcao3,opcao4, childToParent}: IdeiaQuestionProps){
     return(
             <ContainerContent ref={ideiaReference}>
                 <ContainerForm>
@@ -14,75 +20,44 @@ export function IdeiaQuestion({ideiaReference}: IdeiaQuestionProps){
                         <img src={gravatar} alt="" />
                     </GravatarImage>
                     <div>
-                        <Question>
-                            <p>Ola! Eu sou a assistente virtual da Clau, e vou te ajudar a elaborar essa super ideia!</p>
-                        </Question>
-                        <ContainerAnswers>
-                            <WrapperAnswer>
-                                <Word className='word'>A</Word>
-                                <Answer className='answer'>Vamos Começar!</Answer>
-                            </WrapperAnswer>
-                        </ContainerAnswers>
-                    </div>
-                </ContainerForm>
-            </ContainerContent>
-    )
-}
-
-interface IdeiaAnswersProps{
-    titulo: string;
-    opcao1: string;
-    opcao2?: string;
-    opcao3?: string;
-    opcao4?: string;
-}
-
-export function IdeiaAnswers(props: IdeiaAnswersProps){
-    return(
-        <ContainerContent>
-            <ContainerForm>
-                <GravatarImage>
-                    <img src={gravatar} alt="" />
-                </GravatarImage>
-            <div>
-                <Question>
-                    <p>{props.titulo}</p>
+                    <Question>
+                    <p>{titulo}</p>
                 </Question>
                 <ContainerAnswers>
                     <WrapperAnswer>
                         <Word className='word'>A</Word>
-                        <Answer className='answer'>{props.opcao1}</Answer>
+                        <Answer onClick={() => childToParent({titulo},'A')} className='answer'>{opcao1}</Answer>
                     </WrapperAnswer>
-
-                    {props.opcao2 != '' ?(
+                    
+                    {opcao2 != undefined ?(
                         <WrapperAnswer>
                             <Word className='word'>B</Word>
-                            <Answer className='answer'>{props.opcao2}</Answer>
+                            <Answer onClick={() => childToParent({titulo},'B')} className='answer'>{opcao2}</Answer>
                         </WrapperAnswer>
                     ) : (
                         <></>
                     )}
                         
-                    {props.opcao3 != '' ? (
+                    {opcao3 != undefined ? (
                         <WrapperAnswer>
                             <Word className='word'>C</Word>
-                            <Answer className='answer'>{props.opcao3}</Answer>
+                            <Answer onClick={() => childToParent({titulo},'C')} className='answer'>{opcao3}</Answer>
                         </WrapperAnswer>
                     ): (
                         <></>
                     )}
 
-                    {props.opcao4 != '' ? (
+                    {opcao4 != undefined ? (
                         <WrapperAnswer>
                             <Word className='word'>D</Word>
-                            <Answer className='answer'>{props.opcao4}</Answer>
+                            <Answer onClick={() => childToParent({titulo},'D')} className='answer'>{opcao4}</Answer>
                         </WrapperAnswer>
                     ) : (
                         <></>
                     )}
                 </ContainerAnswers>
-            </div>
-        </ContainerForm>
-    </ContainerContent>
+                    </div>
+                </ContainerForm>
+            </ContainerContent>
     )
 }
