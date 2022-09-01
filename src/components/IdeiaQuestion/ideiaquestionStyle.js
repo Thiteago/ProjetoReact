@@ -2,6 +2,12 @@ import styled from 'styled-components';
 
 export const Alerta = styled.span`
   display: none;
+  color: red;
+`
+
+export const InputAnswer = styled.input`
+
+
 `
 
 export const WrapperInputAnswer = styled.div`
@@ -11,7 +17,7 @@ export const WrapperInputAnswer = styled.div`
   flex-direction: column;
 `
 
-export const InputAnswer = styled.textarea`
+export const InputTextAnswer = styled.textarea`
   width: 550px;
   height: 200px;
   padding: 10px;

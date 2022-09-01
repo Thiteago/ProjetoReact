@@ -43,14 +43,15 @@ export function MandeSuaIdeia(){
 
 
     const childToParent = (per, res) => {
+        console.log(arrayRespostas)
         if(per.titulo == pergunta.titulo){
             if(res == 'A'){
                 arrayRespostas.push(per, res);
                 setPergunta(prevPergunta => {
                     return {
-                        ...pergunta, 
+                        ...prevPergunta, 
                         titulo : "Perfeito! Vamos criar um Produto incrível juntos! Agora me fala mais um pouco sobre o produto, é um topo de bolo , um arco de balão ? Pode me falar", 
-                        opcao1 : "input",
+                        opcao1 : "inputText",
                         opcao2 : ''
                     }
                 })
