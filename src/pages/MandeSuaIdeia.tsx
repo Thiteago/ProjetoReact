@@ -25,35 +25,51 @@ const ContainerContent = styled.section`
     background-attachment: fixed;
     background-size: cover;
 `
-class Pergunta{
-    titulo: string | undefined;
-    opcao1: string | undefined;
-    opcao2: string | undefined;
-    opcao3: string | undefined;
-    opcao4: string | undefined
-    
-    
-}
 
 export function MandeSuaIdeia(){
     const teste = useRef<HTMLDivElement>(null);
     const ideiaReference = useRef<HTMLDivElement>(null);
     const {signed} = useContext(AuthContext)
-    const [pergunta, setPergunta] = useState();
+    const [pergunta, setPergunta] = useState({
+        titulo: 'Vamos começar, voce está interessado em um produto ou em um Kit (Topo de bolo, painel decorativo , etc..)?',
+        opcao1: 'Produto',
+        opcao2: 'Kit',
+        opcao3: '',
+        opcao4: ''
+    });
+
 
     const arrayRespostas: string[] = [];
-    const pergunta1 = new Pergunta();
-    pergunta1.titulo = 'Vamos começar, voce está interessado em um produto ou em um Kit (Topo de bolo, painel decorativo , etc..)?'
-    pergunta1.opcao1 = 'Produto'
-    pergunta1.opcao2 = 'Kit'
+
 
     const childToParent = (per, res) => {
-        setPergunta(per)
-        arrayRespostas.push(per, res)
+        if(per.titulo == pergunta.titulo){
+            if(res == 'A'){
+                arrayRespostas.push(per, res);
+                setPergunta(prevPergunta => {
+                    return {
+                        ...pergunta, 
+                        titulo : "Perfeito! Vamos criar um Produto incrível juntos! Agora me fala mais um pouco sobre o produto, é um topo de bolo , um arco de balão ? Pode me falar", 
+                        opcao1 : "input",
+                        opcao2 : ''
+                    }
+                })
+            }else if(res == 'B'){
+                arrayRespostas.push(per, res);
+                
+            }else if(res != ''){
+                arrayRespostas.push(per, res)
+                setPergunta(prevPergunta => {
+                    return {
+                        ...pergunta,
+                        titulo: "Ótimo , agora que eu sei bastante sobre seu produto, me fala mais ou menos pra quando voce vai precisar?",
+                        opcao1 : "input",
+                    }
+                })
+            }
+        }
     }
 
-
-    
 
 
 
@@ -77,8 +93,7 @@ export function MandeSuaIdeia(){
                         </div>
                     </div> */}
 
-
-                    <IdeiaQuestion ideiaReference={ideiaReference} titulo={pergunta1.titulo} opcao1={pergunta1.opcao1} opcao2={pergunta1.opcao2} opcao3={pergunta1.opcao3} opcao4={pergunta1.opcao4} childToParent={childToParent}></IdeiaQuestion>                 
+                    <IdeiaQuestion ideiaReference={ideiaReference} titulo={pergunta.titulo} opcao1={pergunta.opcao1} opcao2={pergunta.opcao2} opcao3={pergunta.opcao3} opcao4={pergunta.opcao4} childToParent={childToParent}></IdeiaQuestion>                 
 
                 </ContainerContent>
             </>
