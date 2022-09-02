@@ -6,6 +6,7 @@ import mande from "../assets/img/mande_sua_ideia.png";
 import { IdeiaQuestion } from '../components/IdeiaQuestion/ideiaquestion';
 import { AuthContext } from '../context/auth';
 import styled from "styled-components"
+import { string } from 'yup';
 
 const Aviso = styled.h1`
     font-size: 2em;
@@ -25,6 +26,11 @@ const ContainerContent = styled.section`
     background-attachment: fixed;
     background-size: cover;
 `
+type Question ={
+    question: string,
+    answer: string
+ }
+
 
 export function MandeSuaIdeia(){
     const teste = useRef<HTMLDivElement>(null);
@@ -37,21 +43,18 @@ export function MandeSuaIdeia(){
         opcao3: '',
         opcao4: ''
     });
-    const [arrayAnswer, setArrayAnswer] = useState<Array<string>>([])
-
-
+    
+    const [answer, setAnswers] = useState<Question[]>([])
+    console.log(answer)
 
     const childToParent = (per, res) => {
         if(per.titulo == pergunta.titulo){
             if(res == 'A'){
-                setArrayAnswer((arrayAnswer: any)=> [
-                    {
-                        ...arrayAnswer,
-                        per, 
-                        res
-                    }
+                setAnswers(prevAnswers => [
+                    ...prevAnswers,
+                    {question: per, answer: res}
                 ])
-
+                
                 setPergunta(prevPergunta => {
                     return {
                         ...prevPergunta, 
@@ -61,23 +64,18 @@ export function MandeSuaIdeia(){
                     }
                 })
             }else if(res == 'B'){
-                setArrayAnswer((arrayAnswer: any)=> [
-                    {
-                        ...arrayAnswer,
-                        per, 
-                        res
-                    }
+                setAnswers(prevAnswers => [
+                    ...prevAnswers,
+                    {question: per, answer: res}
                 ])
+        
                 
             }else if(res != ''){
-                setArrayAnswer((arrayAnswer: any)=> [
-                    {
-                        ...arrayAnswer,
-                        per, 
-                        res
-                    }
+                setAnswers(prevAnswers => [
+                    ...prevAnswers,
+                    {question: per, answer: res}
                 ])
-                
+
                 setPergunta(prevPergunta => {
                     return {
                         ...prevPergunta,
@@ -89,10 +87,7 @@ export function MandeSuaIdeia(){
         }
     }
 
-    arrayAnswer.forEach((item) => {
-        console.log(item)
-    })
-
+    
 
 
 
