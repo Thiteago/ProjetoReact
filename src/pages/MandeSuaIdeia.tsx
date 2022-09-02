@@ -37,16 +37,21 @@ export function MandeSuaIdeia(){
         opcao3: '',
         opcao4: ''
     });
+    const [arrayAnswer, setArrayAnswer] = useState<Array<string>>([])
 
-
-    const arrayRespostas: string[] = [];
 
 
     const childToParent = (per, res) => {
-        console.log(arrayRespostas)
         if(per.titulo == pergunta.titulo){
             if(res == 'A'){
-                arrayRespostas.push(per, res);
+                setArrayAnswer((arrayAnswer: any)=> [
+                    {
+                        ...arrayAnswer,
+                        per, 
+                        res
+                    }
+                ])
+
                 setPergunta(prevPergunta => {
                     return {
                         ...prevPergunta, 
@@ -56,13 +61,26 @@ export function MandeSuaIdeia(){
                     }
                 })
             }else if(res == 'B'){
-                arrayRespostas.push(per, res);
+                setArrayAnswer((arrayAnswer: any)=> [
+                    {
+                        ...arrayAnswer,
+                        per, 
+                        res
+                    }
+                ])
                 
             }else if(res != ''){
-                arrayRespostas.push(per, res)
+                setArrayAnswer((arrayAnswer: any)=> [
+                    {
+                        ...arrayAnswer,
+                        per, 
+                        res
+                    }
+                ])
+                
                 setPergunta(prevPergunta => {
                     return {
-                        ...pergunta,
+                        ...prevPergunta,
                         titulo: "Ótimo , agora que eu sei bastante sobre seu produto, me fala mais ou menos pra quando voce vai precisar?",
                         opcao1 : "input",
                     }
@@ -70,6 +88,10 @@ export function MandeSuaIdeia(){
             }
         }
     }
+
+    arrayAnswer.forEach((item) => {
+        console.log(item)
+    })
 
 
 
