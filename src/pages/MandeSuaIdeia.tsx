@@ -82,7 +82,7 @@ export function MandeSuaIdeia(){
                         opcao1 : "input",
                     }
                 })
-            }
+            }else if(res )
         }
     }
 

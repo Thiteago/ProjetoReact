@@ -16,7 +16,7 @@ export function IdeiaQuestion({ideiaReference, titulo,opcao1, opcao2,opcao3,opca
     const texto = useRef<HTMLTextAreaElement>()
     const alerta = useRef<HTMLSpanElement>()
     let compOpcao1;
-    const data = new Date();
+    const today = new Date().toLocaleDateString('en-ca')
 
     if(texto.current != null){
         texto.current.value = '';
@@ -46,8 +46,8 @@ export function IdeiaQuestion({ideiaReference, titulo,opcao1, opcao2,opcao3,opca
         compOpcao1 = <WrapperInputAnswer>
             <FormSubmit>
                 <Alerta ref={alerta}>Nao podemos avançar sem essa informação, por favor, insira alguns detalhes sobre o seu produto!</Alerta>
-                <InputAnswer type="date" min="2021-12-01" ref={texto}></InputAnswer>
-                {console.log(data.getDate())}
+                <InputAnswer type="date" min={today} ref={texto} required></InputAnswer>
+
                 <ButtonSubmit onClick={function(event){verificarText(); childToParent({titulo}, texto.current?.value)}}>Enviar</ButtonSubmit>
             </FormSubmit>
         </WrapperInputAnswer>
