@@ -39,7 +39,12 @@ export function IdeiaQuestion({ideiaReference, titulo,opcao1, opcao2,opcao3,opca
                 <Alerta ref={alerta}>Nao podemos avançar sem essa informação, por favor, insira alguns detalhes sobre o seu produto</Alerta>
                 <InputTextAnswer onChange={e => setCount(e.target.value.length)} ref={texto}></InputTextAnswer>
                 <p>{count}</p>
-                <ButtonSubmit onClick={function(event){verificarText(); childToParent({titulo}, texto.current?.value)}}>Enviar</ButtonSubmit>
+                {count <= 10 ? (
+                    <p>Precisamos de mais informações, por favor, fale mais sobre o produto!</p>
+                ) : (
+                    <ButtonSubmit onClick={function(event){verificarText(); childToParent({titulo}, texto.current?.value)}}>Enviar</ButtonSubmit>
+                )}
+                
             </form>
         </WrapperInputAnswer>
     }else if(opcao1 == 'input'){

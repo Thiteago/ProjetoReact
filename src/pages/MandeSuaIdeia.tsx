@@ -70,8 +70,6 @@ export function MandeSuaIdeia(){
         
                 
             }else if(res != ''){
-
-                console.log(Object.keys(res).length)
                 if(Object.keys(res).length == 10){
                     console.log('entrou')
                     setAnswers(prevAnswers => [
