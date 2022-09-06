@@ -1,4 +1,4 @@
-import { RefObject, useRef } from "react";
+import { RefObject, useRef, useState } from "react";
 import gravatar from "../../assets/img/gravatar-sorrindo.png";
 import {InputAnswer, WrapperInputAnswer ,Answer, ContainerAnswers, ContainerContent, ContainerForm, GravatarImage, Question, Word, WrapperAnswer, InputTextAnswer, ButtonSubmit, Alerta, FormSubmit } from "./ideiaquestionStyle";
 
@@ -14,16 +14,15 @@ interface IdeiaQuestionProps{
 
 export function IdeiaQuestion({ideiaReference, titulo,opcao1, opcao2,opcao3,opcao4, childToParent}: IdeiaQuestionProps){
     const texto = useRef<HTMLTextAreaElement>()
+    const data = useRef<HTMLInputElement>()
     const alerta = useRef<HTMLSpanElement>()
     let compOpcao1;
     const today = new Date().toLocaleDateString('en-ca')
+    const [count, setCount] = useState(0)
 
-    if(texto.current != null){
-        texto.current.value = '';
-    }
     
     function verificarText(){
-        if(texto.current?.value == undefined || texto.current?.value == ''){
+        if(texto.current?.value == undefined || texto.current?.value == '' || texto.current?.value.length == 10){
             if(alerta.current != null){
                 alerta.current.style.display = 'flex';
             }
@@ -37,8 +36,9 @@ export function IdeiaQuestion({ideiaReference, titulo,opcao1, opcao2,opcao3,opca
     if(opcao1 == 'inputText'){
         compOpcao1 = <WrapperInputAnswer>
             <form>
-                <Alerta ref={alerta}>Nao podemos avançar sem essa informação, por favor, insira alguns detalhes sobre o seu produto!</Alerta>
-                <InputTextAnswer ref={texto}></InputTextAnswer>
+                <Alerta ref={alerta}>Nao podemos avançar sem essa informação, por favor, insira alguns detalhes sobre o seu produto</Alerta>
+                <InputTextAnswer onChange={e => setCount(e.target.value.length)} ref={texto}></InputTextAnswer>
+                <p>{count}</p>
                 <ButtonSubmit onClick={function(event){verificarText(); childToParent({titulo}, texto.current?.value)}}>Enviar</ButtonSubmit>
             </form>
         </WrapperInputAnswer>
@@ -46,9 +46,8 @@ export function IdeiaQuestion({ideiaReference, titulo,opcao1, opcao2,opcao3,opca
         compOpcao1 = <WrapperInputAnswer>
             <FormSubmit>
                 <Alerta ref={alerta}>Nao podemos avançar sem essa informação, por favor, insira alguns detalhes sobre o seu produto!</Alerta>
-                <InputAnswer type="date" min={today} ref={texto} required></InputAnswer>
-
-                <ButtonSubmit onClick={function(event){verificarText(); childToParent({titulo}, texto.current?.value)}}>Enviar</ButtonSubmit>
+                <InputAnswer type="date" min={today} ref={data} required></InputAnswer>
+                <ButtonSubmit onClick={function(event){childToParent({titulo}, data.current?.value)}}>Enviar</ButtonSubmit>
             </FormSubmit>
         </WrapperInputAnswer>
     }else{

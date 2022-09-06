@@ -6,7 +6,7 @@ import mande from "../assets/img/mande_sua_ideia.png";
 import { IdeiaQuestion } from '../components/IdeiaQuestion/ideiaquestion';
 import { AuthContext } from '../context/auth';
 import styled from "styled-components"
-import { string } from 'yup';
+
 
 const Aviso = styled.h1`
     font-size: 2em;
@@ -70,19 +70,37 @@ export function MandeSuaIdeia(){
         
                 
             }else if(res != ''){
-                setAnswers(prevAnswers => [
-                    ...prevAnswers,
-                    {question: per, answer: res}
-                ])
 
-                setPergunta(prevPergunta => {
-                    return {
-                        ...prevPergunta,
-                        titulo: "Ótimo , agora que eu sei bastante sobre seu produto, me fala mais ou menos pra quando voce vai precisar?",
-                        opcao1 : "input",
-                    }
-                })
-            }else if(res )
+                console.log(Object.keys(res).length)
+                if(Object.keys(res).length == 10){
+                    console.log('entrou')
+                    setAnswers(prevAnswers => [
+                        ...prevAnswers,
+                        {question: per, answer: res}
+                    ])
+
+                    setPergunta(prevPergunta => {
+                        return {
+                            ...prevPergunta,
+                            titulo: "Excelente!! Acho que ja terminamos por aqui, clique em 'Finalizar' e entraremos em contato o quanto antes para acertar os detalhes.",
+                            opcao1 : "Finalizar",
+                        }
+                    })
+                }else{
+                    setAnswers(prevAnswers => [
+                        ...prevAnswers,
+                        {question: per, answer: res}
+                    ])
+    
+                    setPergunta(prevPergunta => {
+                        return {
+                            ...prevPergunta,
+                            titulo: "Ótimo , agora que eu sei bastante sobre seu produto, me fala mais ou menos pra quando voce vai precisar?",
+                            opcao1 : "input",
+                        }
+                    })
+                }
+            }
         }
     }
 
