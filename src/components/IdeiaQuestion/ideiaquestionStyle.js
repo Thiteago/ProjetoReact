@@ -3,32 +3,38 @@ import styled from 'styled-components';
 export const Alerta = styled.span`
   display: none;
   color: red;
-`
+`;
 
 export const InputAnswer = styled.input`
-
-
-`
+  display: flex;
+  margin-bottom: 15px;
+`;
 
 export const WrapperInputAnswer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-`
+`;
 
 export const InputTextAnswer = styled.textarea`
   width: 550px;
   height: 200px;
   padding: 10px;
   resize: none;
-`
+`;
+
+export const FormSubmit = styled.form`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+`;
 
 export const ButtonSubmit = styled.button`
-  width: 150px;
+  width: 140px;
   height: 50px;
-`
-
+`;
 
 export const ContainerContent = styled.section`
   width: 100%;

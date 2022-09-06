@@ -45,7 +45,6 @@ export function MandeSuaIdeia(){
     });
     
     const [answer, setAnswers] = useState<Question[]>([])
-    console.log(answer)
 
     const childToParent = (per, res) => {
         if(per.titulo == pergunta.titulo){

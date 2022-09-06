@@ -1,6 +1,6 @@
 import { RefObject, useRef } from "react";
 import gravatar from "../../assets/img/gravatar-sorrindo.png";
-import {InputAnswer, WrapperInputAnswer ,Answer, ContainerAnswers, ContainerContent, ContainerForm, GravatarImage, Question, Word, WrapperAnswer, InputTextAnswer, ButtonSubmit, Alerta } from "./ideiaquestionStyle";
+import {InputAnswer, WrapperInputAnswer ,Answer, ContainerAnswers, ContainerContent, ContainerForm, GravatarImage, Question, Word, WrapperAnswer, InputTextAnswer, ButtonSubmit, Alerta, FormSubmit } from "./ideiaquestionStyle";
 
 interface IdeiaQuestionProps{
     ideiaReference: RefObject<HTMLDivElement>;
@@ -16,6 +16,7 @@ export function IdeiaQuestion({ideiaReference, titulo,opcao1, opcao2,opcao3,opca
     const texto = useRef<HTMLTextAreaElement>()
     const alerta = useRef<HTMLSpanElement>()
     let compOpcao1;
+    const data = new Date();
 
     if(texto.current != null){
         texto.current.value = '';
@@ -23,9 +24,7 @@ export function IdeiaQuestion({ideiaReference, titulo,opcao1, opcao2,opcao3,opca
     
     function verificarText(){
         if(texto.current?.value == undefined || texto.current?.value == ''){
-            console.log('entrou aqui , textarea vazio')
             if(alerta.current != null){
-                console.log('entrou aqui, alerta diferente de null e vai mudar o display')
                 alerta.current.style.display = 'flex';
             }
         }else{
@@ -45,11 +44,12 @@ export function IdeiaQuestion({ideiaReference, titulo,opcao1, opcao2,opcao3,opca
         </WrapperInputAnswer>
     }else if(opcao1 == 'input'){
         compOpcao1 = <WrapperInputAnswer>
-            <form>
+            <FormSubmit>
                 <Alerta ref={alerta}>Nao podemos avançar sem essa informação, por favor, insira alguns detalhes sobre o seu produto!</Alerta>
-                    <InputAnswer type="date" ref={texto}></InputAnswer>
+                <InputAnswer type="date" min="2021-12-01" ref={texto}></InputAnswer>
+                {console.log(data.getDate())}
                 <ButtonSubmit onClick={function(event){verificarText(); childToParent({titulo}, texto.current?.value)}}>Enviar</ButtonSubmit>
-            </form>
+            </FormSubmit>
         </WrapperInputAnswer>
     }else{
         compOpcao1 = <WrapperAnswer>
