@@ -5,6 +5,13 @@ export const Alerta = styled.span`
   color: red;
 `;
 
+export const WrapperAlternativeAnswer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+`
+
 export const InputAnswer = styled.input`
   display: flex;
   margin-bottom: 15px;
@@ -92,6 +99,11 @@ export const Word = styled.div`
 `;
 
 export const Answer = styled.div`
+  display: flex;
+  width: 80%;
+`
+
+export const AnswerTitle = styled.div`
   width: 80%;
   padding-left: 5px;
   height: 45px;

@@ -40,14 +40,13 @@ export function MandeSuaIdeia(){
         titulo: 'Vamos começar, voce está interessado em um produto ou em um Kit (Topo de bolo, painel decorativo , etc..)?',
         opcao1: 'Produto',
         opcao2: 'Kit',
-        opcao3: '',
-        opcao4: ''
+        tipo: 'alternativa'
     });
     
     const [answer, setAnswers] = useState<Question[]>([])
 
-    const childToParent = (per, res) => {
-        if(per.titulo == pergunta.titulo){
+    const childToParent = (per, res, typ) => {
+        if(typ == 'alternativa'){
             if(res == 'A'){
                 setAnswers(prevAnswers => [
                     ...prevAnswers,
@@ -58,8 +57,7 @@ export function MandeSuaIdeia(){
                     return {
                         ...prevPergunta, 
                         titulo : "Perfeito! Vamos criar um Produto incrível juntos! Agora me fala mais um pouco sobre o produto, é um topo de bolo , um arco de balão ? Pode me falar", 
-                        opcao1 : "inputText",
-                        opcao2 : ''
+                        tipo: 'inputText'
                     }
                 })
             }else if(res == 'B'){
@@ -67,38 +65,42 @@ export function MandeSuaIdeia(){
                     ...prevAnswers,
                     {question: per, answer: res}
                 ])
-        
-                
-            }else if(res != ''){
-                if(Object.keys(res).length == 10){
-                    console.log('entrou')
-                    setAnswers(prevAnswers => [
-                        ...prevAnswers,
-                        {question: per, answer: res}
-                    ])
 
-                    setPergunta(prevPergunta => {
-                        return {
-                            ...prevPergunta,
-                            titulo: "Excelente!! Acho que ja terminamos por aqui, clique em 'Finalizar' e entraremos em contato o quanto antes para acertar os detalhes.",
-                            opcao1 : "Finalizar",
-                        }
-                    })
-                }else{
-                    setAnswers(prevAnswers => [
-                        ...prevAnswers,
-                        {question: per, answer: res}
-                    ])
-    
-                    setPergunta(prevPergunta => {
-                        return {
-                            ...prevPergunta,
-                            titulo: "Ótimo , agora que eu sei bastante sobre seu produto, me fala mais ou menos pra quando voce vai precisar?",
-                            opcao1 : "input",
-                        }
-                    })
-                }
+                setPergunta(prevPergunta => {
+                    return {
+                        ...prevPergunta,
+                        titutlo: "",
+                        tipo: 'list'
+                    }
+                })
             }
+        }else if(typ == 'inputText'){
+            setAnswers(prevAnswers => [
+                ...prevAnswers,
+                {question: per, answer: res}
+            ])
+
+            setPergunta(prevPergunta => {
+                return {
+                    ...prevPergunta,
+                    titulo: "Ótimo! Agora que ja temos todas as informações, pode me falar , pra quando voce precisa dele?",
+                    tipo: 'inputDate'
+
+                }
+            })
+        }else if(typ == 'prazo'){
+            setAnswers(prevAnswers => [
+                ...prevAnswers,
+                {question: per, answer: res}
+            ])
+
+            setPergunta(prevPergunta => {
+                return {
+                    ...prevPergunta,
+                    titulo: "Excelente! Acho que ja terminamos por aqui, clique no botao para enviar toda essa ideia pra gente e responderemos assim que possivel",
+                    tipo: 'submit'
+                }
+            })
         }
     }
 
@@ -126,7 +128,7 @@ export function MandeSuaIdeia(){
                         </div>
                     </div> */}
 
-                    <IdeiaQuestion ideiaReference={ideiaReference} titulo={pergunta.titulo} opcao1={pergunta.opcao1} opcao2={pergunta.opcao2} opcao3={pergunta.opcao3} opcao4={pergunta.opcao4} childToParent={childToParent}></IdeiaQuestion>                 
+                    <IdeiaQuestion ideiaReference={ideiaReference} titulo={pergunta.titulo} tipo={pergunta.tipo} opcao1={pergunta.opcao1} opcao2={pergunta.opcao2} childToParent={childToParent}></IdeiaQuestion>                 
 
                 </ContainerContent>
             </>
