@@ -46,7 +46,7 @@ export const ButtonSubmit = styled.button`
 export const ContainerContent = styled.section`
   width: 100%;
   display: flex;
-  height: 150px;
+  height: auto;
   transition: ease-in-out 1.5s all;
   animation: myAnim2 1.5s forwards;
   justify-content: center;
@@ -55,7 +55,7 @@ export const ContainerContent = styled.section`
 
 export const ContainerForm = styled.div`
   width: 800px;
-  height: 400px;
+  height: 65%;
   background-color: white;
   display: flex;
   border-radius: 20%;
@@ -64,7 +64,6 @@ export const ContainerForm = styled.div`
 
 export const GravatarImage = styled.div`
   display: flex;
-  height: 100%;
   align-items: center;
   > img {
     width: 200px;
@@ -82,10 +81,27 @@ export const ContainerAnswers = styled.div`
   flex-direction: column;
 `;
 
+export const UnselectedItems = styled.div`
+  height: 185px;
+  display: flex;
+  flex-wrap: wrap;
+`
+
+export const SelectedItems = styled.div`
+  height: 185px;
+  background-color: #f4f4f4;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 30px;
+`
+
+
+
 export const WrapperAnswer = styled.div`
   width: 570px;
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  gap: 10px;
 `;
 
 export const Word = styled.div`

@@ -1,8 +1,9 @@
-import { RefObject, useRef,useEffect, useState } from "react";
+import React from "react";
+import { RefObject, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import gravatar from "../../assets/img/gravatar-sorrindo.png";
-import {InputAnswer, WrapperInputAnswer ,Answer, ContainerAnswers, ContainerContent, ContainerForm, GravatarImage, Question, Word, WrapperAnswer, InputTextAnswer, ButtonSubmit, Alerta, FormSubmit, WrapperAlternativeAnswer, AnswerTitle } from "./ideiaquestionStyle";
-import moment from 'moment'
+import { Item } from "../Item/Item";
+import {InputAnswer, UnselectedItems, WrapperInputAnswer ,Answer, ContainerAnswers, ContainerContent, ContainerForm, GravatarImage, Question, Word, WrapperAnswer, InputTextAnswer, ButtonSubmit, Alerta, FormSubmit, WrapperAlternativeAnswer, AnswerTitle, SelectedItems } from "./ideiaquestionStyle";
 
 interface IdeiaQuestionProps{
     ideiaReference: RefObject<HTMLDivElement>;
@@ -28,8 +29,6 @@ export function IdeiaQuestion({ideiaReference,tipo, titulo,opcao1, opcao2, child
         window.open('https://wa.me/5512997431974','_blank')
     }
         
-
-    
     function verificarText(){
         if(texto.current?.value == undefined || texto.current?.value == '' || texto.current?.value.length == 10){
             if(alerta.current != null){
@@ -41,6 +40,23 @@ export function IdeiaQuestion({ideiaReference,tipo, titulo,opcao1, opcao2, child
             }
         }
     }
+
+    function listenState(item){
+        console.log(item)
+    }
+
+    const unselectedArray = [
+        {title: "Topo de bolo", key: "1"},
+        {title: "Painel", key: "2"},
+        {title: "Arco de Balao", key: "3"}
+    ]
+
+    const selectedArray = [
+        {title: "", key: ""}
+    ]
+
+
+
 
     if(tipo == 'inputText'){
         question = <WrapperInputAnswer>
@@ -99,6 +115,19 @@ export function IdeiaQuestion({ideiaReference,tipo, titulo,opcao1, opcao2, child
                 <AnswerTitle onClick={() => childToParent({titulo},'B', 'alternativa')}>{opcao2}</AnswerTitle>
             </Answer>
         </WrapperAlternativeAnswer>
+    }else if(tipo == 'list'){
+        question = 
+        <WrapperAnswer>
+            <UnselectedItems>
+                {unselectedArray.map((e) => <Item key={e.key} title={e.title} listenState={listenState}></Item>)}
+            </UnselectedItems>
+            <p>Selecionados:</p>
+            <SelectedItems>
+                {selectedArray.map((e) => {
+                    <Item key={e.key} title={e.title} listenState={listenState}></Item>
+                })}
+            </SelectedItems>
+        </WrapperAnswer>
     }
     
     return(

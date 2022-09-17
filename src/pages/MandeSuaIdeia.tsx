@@ -69,7 +69,7 @@ export function MandeSuaIdeia(){
                 setPergunta(prevPergunta => {
                     return {
                         ...prevPergunta,
-                        titutlo: "",
+                        titulo: "Wow , esse KIT vai ser incrivel, voce pode inserir na lista abaixo todos os itens que voce for precisar",
                         tipo: 'list'
                     }
                 })
