@@ -121,13 +121,13 @@ export function IdeiaQuestion({ideiaReference,tipo, titulo,opcao1, opcao2, child
         <WrapperAnswer>
             <UnselectedItems>
                 {items.filter(item => item.selected === false).map((e) => {
-                    return(<Item key={e.id} id={e.id} title={e.title} changeState={changeState}></Item>)
+                    return(<Item key={e.id} id={e.id} title={e.title} status={e.selected} changeState={changeState}></Item>)
                 })}
             </UnselectedItems>  
             <p>Selecionados:</p>
             <SelectedItems>
             {items.filter(item => item.selected === true).map((e) => {
-                    return(<Item key={e.id} id={e.id} title={e.title} changeState={changeState}></Item>)
+                    return(<Item key={e.id} id={e.id} title={e.title} status={e.selected} changeState={changeState}></Item>)
             })}
             </SelectedItems>
         </WrapperAnswer>
