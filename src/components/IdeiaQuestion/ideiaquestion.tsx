@@ -1,4 +1,3 @@
-import React from "react";
 import { RefObject, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import gravatar from "../../assets/img/gravatar-sorrindo.png";
@@ -18,12 +17,20 @@ export function IdeiaQuestion({ideiaReference,tipo, titulo,opcao1, opcao2, child
     const texto = useRef<HTMLTextAreaElement>()
     const data = useRef<HTMLInputElement>()
     const alerta = useRef<HTMLSpanElement>()
-    let question;
     const today = new Date().toLocaleDateString('en-ca')
     const [count, setCount] = useState(0)
     const [valid, setValid] = useState(false)
-    const navigate = useNavigate()
     const [value, setValue] = useState(today);
+    const [items, setItems] = useState([
+        {title: "Topo de bolo", id: 1, selected: false},
+        {title: "Painel", id: 2, selected: false},
+        {title: "Arco de Balao", id: 3, selected: false},
+        {title: "Peteca", id: 4, selected: false}
+    ])
+
+    const navigate = useNavigate()
+    let question;
+    
 
     function redirecionar(){
         window.open('https://wa.me/5512997431974','_blank')
@@ -41,20 +48,14 @@ export function IdeiaQuestion({ideiaReference,tipo, titulo,opcao1, opcao2, child
         }
     }
 
-    function listenState(item){
-        console.log(item)
+    const changeState = (id: number, state) => {
+        items.map((item) => {
+            if(item.id === id){
+                setItems([...items, item.selected=state])
+            }
+        })
+
     }
-
-    const unselectedArray = [
-        {title: "Topo de bolo", key: "1"},
-        {title: "Painel", key: "2"},
-        {title: "Arco de Balao", key: "3"}
-    ]
-
-    const selectedArray = [
-        {title: "", key: ""}
-    ]
-
 
 
 
@@ -119,13 +120,15 @@ export function IdeiaQuestion({ideiaReference,tipo, titulo,opcao1, opcao2, child
         question = 
         <WrapperAnswer>
             <UnselectedItems>
-                {unselectedArray.map((e) => <Item key={e.key} title={e.title} listenState={listenState}></Item>)}
-            </UnselectedItems>
+                {items.filter(item => item.selected === false).map((e) => {
+                    return(<Item key={e.id} id={e.id} title={e.title} changeState={changeState}></Item>)
+                })}
+            </UnselectedItems>  
             <p>Selecionados:</p>
             <SelectedItems>
-                {selectedArray.map((e) => {
-                    <Item key={e.key} title={e.title} listenState={listenState}></Item>
-                })}
+            {items.filter(item => item.selected === true).map((e) => {
+                    return(<Item key={e.id} id={e.id} title={e.title} changeState={changeState}></Item>)
+            })}
             </SelectedItems>
         </WrapperAnswer>
     }

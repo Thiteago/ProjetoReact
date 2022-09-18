@@ -1,32 +1,22 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {ItemWrapper, Signal} from './itemStyle'
 
 interface ItemProps {
+    id: number;
+    key: any;
     title: string;
-    listenState: any;
+    changeState: any;
 }
 
 
-export function Item(props : ItemProps){
-    const [select, setSelect] = useState(false)
 
-    useEffect(() => {
-        props.listenState(select)
-    }, [select])
+export function Item(props : ItemProps){
+    const [select, setSelect] = useState(true);
 
     return(
         <>
             <ItemWrapper>
-                <Signal 
-                onClick={() => {
-                    if(select){
-                        setSelect(false)
-                    }else{
-                        setSelect(true)
-                    }
-                }}>
-                    {select ? '+' : '-'}
-                </Signal>
+                <Signal onClick={() => {if(select === false){setSelect(true)}else{setSelect(false)} props.changeState(props.id, select)}}>{select ? "+" : "-"}</Signal>
                 <span>{props.title}</span>
             </ItemWrapper>
         </>
