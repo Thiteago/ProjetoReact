@@ -6,6 +6,7 @@ import mande from "../assets/img/mande_sua_ideia.png";
 import { IdeiaQuestion } from '../components/IdeiaQuestion/ideiaquestion';
 import { AuthContext } from '../context/auth';
 import styled from "styled-components"
+import { Answer } from '../components/IdeiaQuestion/ideiaquestionStyle';
 
 
 const Aviso = styled.h1`
@@ -101,12 +102,38 @@ export function MandeSuaIdeia(){
                     tipo: 'submit'
                 }
             })
+        }else if(typ == 'lista'){
+            setAnswers(prevAnswers => [
+                ...prevAnswers,
+                {question: per, answer: res}
+            ])
+
+            setPergunta(prevPergunta => {
+                return {
+                    ...prevPergunta,
+                    titulo: "Opa , quanta opção! Voce pode nos falar um pouquinho sobre cada item que voce escolheu ?",
+                    tipo: 'descList'
+                }
+            })
+        }else if(typ == 'descriptions'){
+            setAnswers(prevAnswers => [
+                ...prevAnswers,
+                {question: per, answer: res}
+            ])
+
+            setPergunta(prevPergunta => {
+                return {
+                    ...prevPergunta,
+                    titulo: "Ótimo! Agora que ja temos todas as informações, pode me falar , pra quando voce precisa dele?",
+                    tipo: 'inputDate'
+                }
+            })
         }
     }
 
     
 
-
+    
 
     useEffect(() =>{
         setInterval(() =>{

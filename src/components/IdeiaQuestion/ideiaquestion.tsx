@@ -1,8 +1,9 @@
+import React, { useEffect } from "react";
 import { RefObject, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import gravatar from "../../assets/img/gravatar-sorrindo.png";
 import { Item } from "../Item/Item";
-import {InputAnswer, UnselectedItems, WrapperInputAnswer ,Answer, ContainerAnswers, ContainerContent, ContainerForm, GravatarImage, Question, Word, WrapperAnswer, InputTextAnswer, ButtonSubmit, Alerta, FormSubmit, WrapperAlternativeAnswer, AnswerTitle, SelectedItems } from "./ideiaquestionStyle";
+import {InputAnswer, UnselectedItems, WrapperInputAnswer ,Answer, ContainerAnswers, ContainerContent, ContainerForm, GravatarImage, Question, Word, WrapperAnswer, InputTextAnswer, ButtonSubmit, Alerta, FormSubmit, WrapperAlternativeAnswer, AnswerTitle, SelectedItems, InputDescribe, ContainerOptions } from "./ideiaquestionStyle";
 
 interface IdeiaQuestionProps{
     ideiaReference: RefObject<HTMLDivElement>;
@@ -17,6 +18,7 @@ export function IdeiaQuestion({ideiaReference,tipo, titulo,opcao1, opcao2, child
     const texto = useRef<HTMLTextAreaElement>()
     const data = useRef<HTMLInputElement>()
     const alerta = useRef<HTMLSpanElement>()
+
     const today = new Date().toLocaleDateString('en-ca')
     const [count, setCount] = useState(0)
     const [valid, setValid] = useState(false)
@@ -57,7 +59,9 @@ export function IdeiaQuestion({ideiaReference,tipo, titulo,opcao1, opcao2, child
 
     }
 
-
+    {items.filter(item => item.selected === false).map((e) => {
+        return(<Item key={e.id} id={e.id} title={e.title} status={e.selected} changeState={changeState}></Item>)
+    })}
 
     if(tipo == 'inputText'){
         question = <WrapperInputAnswer>
@@ -130,7 +134,30 @@ export function IdeiaQuestion({ideiaReference,tipo, titulo,opcao1, opcao2, child
                     return(<Item key={e.id} id={e.id} title={e.title} status={e.selected} changeState={changeState}></Item>)
             })}
             </SelectedItems>
+            <ButtonSubmit onClick={() => {childToParent({titulo},items, 'lista')}}>Enviar</ButtonSubmit>
         </WrapperAnswer>
+    }else if(tipo == 'descList'){
+        const arrayDescriptions : string[] = []
+        const refs = useRef([])
+
+       refs.current = []
+        
+
+        question = 
+        <>
+            <WrapperAnswer>
+            {items.filter(item=> item.selected === true).map((item, i) => {
+                return(
+                    <ContainerOptions key={item.id}>
+                        <span key={item.id}>{item.title}</span>
+                        <InputDescribe  type={'text'}></InputDescribe>
+                    </ContainerOptions>
+                    
+                )
+            })}
+            <ButtonSubmit onClick={() => {childToParent({titulo},arrayDescriptions , 'descriptions')}}>Enviar</ButtonSubmit>
+            </WrapperAnswer>
+        </>        
     }
     
     return(

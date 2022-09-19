@@ -6,6 +6,7 @@ import { Sobre } from '../pages/Sobre';
 import { Login } from '../pages/Login';
 import { Venda } from '../pages/Venda';
 import { Register } from '../pages/Register'
+import { Perfil } from '../pages/Perfil/Perfil';
 
 
 export const RoutesApp = () => {
@@ -19,6 +20,7 @@ export const RoutesApp = () => {
                 <Route path="/Login" element={<Login/>}/>
                 <Route path="/Registro" element={<Register/>}/>
                 <Route path="/Venda" element={<Venda/>}/>
+                <Route path="/Perfil" element={<Perfil/>}/>
             </Routes>
     </HashRouter>
     )

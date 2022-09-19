@@ -12,6 +12,11 @@ export const WrapperAlternativeAnswer = styled.div`
 
 `
 
+export const ContainerOptions = styled.div`
+  display: flex;
+  gap: 15px;
+`
+
 export const InputAnswer = styled.input`
   display: flex;
   margin-bottom: 15px;
@@ -62,6 +67,10 @@ export const ContainerForm = styled.div`
   border-top-right-radius: 0px;
 `;
 
+export const InputDescribe = styled.input`
+  width: 200px;
+`
+
 export const GravatarImage = styled.div`
   display: flex;
   align-items: center;
@@ -101,6 +110,7 @@ export const WrapperAnswer = styled.div`
   width: 570px;
   display: flex;
   flex-direction: column;
+  margin-top: 15px;
   gap: 10px;
 `;
 
