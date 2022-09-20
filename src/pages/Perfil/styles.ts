@@ -2,10 +2,11 @@ import styled from 'styled-components'
 
 export const ContainerContent = styled.div`
     display: flex;
-    width: 960px;
+    width: 1920px;
     background-color: grey;
     height: 1080px;
     margin: 0 auto;
+    justify-content: center;
 `
 
 export const MenuBar = styled.aside`
@@ -18,6 +19,15 @@ export const SectionTitle = styled.h3`
     font-size: 2rem
 `
 
+export const FieldSet = styled.fieldset`
+    border: 1px solid grey;
+    padding-left: 6px;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+
+`
+
 export const Title = styled.h4`
     font-size: 1rem;
 ` 
@@ -26,6 +36,22 @@ export const ContainerUltimoPedido = styled.div`
     width: 100%;
     height: 300px;
 ` 
+
+export const DadosContainer = styled.div`
+    padding-top: 20px;
+    padding-left: 20px;
+` 
+export const LegendaField = styled.legend`
+    float: none;
+    font-size: 1.2rem;
+` 
+
+export const InputInfo = styled.input`
+    width: 450px;
+` 
+
+export const DadosWrapper = styled.div`
+`
 
 export const ContainerPedido = styled.div`
     padding-top: 20px;

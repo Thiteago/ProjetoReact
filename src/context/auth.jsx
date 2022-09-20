@@ -23,10 +23,11 @@ export const AuthProvider = ({ children }) => {
     loadingStorageData();
   }, []);
 
-  const login = async (email, senha) => {
+  const login = async (email, senha, id) => {
     const response = await api.post('/Autenticar', {
       email,
       senha,
+      id
     });
 
     if (response.data.error) {
