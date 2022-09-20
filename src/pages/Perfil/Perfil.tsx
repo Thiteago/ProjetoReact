@@ -6,6 +6,7 @@ import {useForm} from 'react-hook-form'
 import {AuthContext} from '../../context/auth'
 import { ButtonSubmit } from "../../components/IdeiaQuestion/ideiaquestionStyle";
 import { useNavigate } from "react-router";
+import InputMask from 'react-input-mask'
 
 interface User {
     id: number;
@@ -29,13 +30,8 @@ export function Perfil(){
     const [localUser , setLocaluser] = useState<User>({
         id: 1, nome: 'default', dataNascimento: '00-00-0000', email: 'default', cpf: 'default', rua: 'default', numeroRua: 1, bairro: 'default', cidade: 'default', cep: 'default', numeroCel: 'default', numeroTel: 'default' 
     })
-    const {user, signed} = useContext(AuthContext)
+    const {user} = useContext(AuthContext)
 
-    const number = Number(1)
-
-    if(typeof(user.id) != typeof(number)){
-        history("/Login")
-    }
 
     useEffect(() => {
         api.get(`/Usuarios/${user.id}/dados`).then(response => {
@@ -48,7 +44,13 @@ export function Perfil(){
 
     const handleUpdateUser = (e) =>{
         const data = e;
-        console.log(data)
+        
+        api.patch(`/Usuarios/${user.id}/Alterar`, data).then((response) => {
+            if(response.status == 201){
+                history("/Perfil")
+                alert("Dados alterados com sucesso!")
+            }
+        })
     }
 
     
@@ -103,23 +105,23 @@ export function Perfil(){
                 <form onSubmit={handleSubmit(handleUpdateUser)} >
                     <FieldSet className="w-75 border p-2 d-flex flex-column">
                         <LegendaField className="w-auto" >Nome Completo *</LegendaField>
-                        <InputInfo readOnly type="text" {...register("nome")} placeholder={localUser.nome}/>
+                        <InputInfo readOnly type="text" defaultValue={localUser.nome}/>
                     </FieldSet>
                     <FieldSet className="w-75 border p-2 d-flex flex-column">
                         <LegendaField className="w-auto">Email / Login *</LegendaField>
-                        <InputInfo type="text" {...register("email")} placeholder={localUser.email}/>
+                        <InputInfo type="text" {...register("email")} defaultValue={localUser.email}/>
                     </FieldSet>
                     <FieldSet className="w-75 border p-2 d-flex flex-column">
                         <LegendaField className="w-auto" readOnly>CPF *</LegendaField>
-                        <InputInfo type="text" {...register("cpf")} placeholder={localUser.cpf}/>
+                        <InputInfo readOnly type="text"  defaultValue={localUser.cpf}/>
                     </FieldSet>
                     <FieldSet className="w-75 border p-2 d-flex flex-column">
                         <LegendaField className="w-auto" readOnly>Data de Nascimento *</LegendaField>
-                        <InputInfo type="text" {...register("dataNascimento")} placeholder={dataNasc.toDateString()}/>
+                        <InputInfo readOnly type="text"  defaultValue={dataNasc.toDateString()}/>
                     </FieldSet>
                     <FieldSet className="w-75 border p-2 d-flex flex-column">
                         <LegendaField className="w-auto">Telefone celular *</LegendaField>
-                        <InputInfo type="text" {...register("numeroCel")} placeholder={localUser.numeroCel}/>
+                        <InputMask mask="(99) 999999999" type="text" {...register("numeroCel")} defaultValue={localUser.numeroCel}/>
                     </FieldSet>
                     <ButtonSubmit type='submit'>Alterar</ButtonSubmit>
                 </form>

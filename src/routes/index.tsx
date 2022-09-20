@@ -8,6 +8,7 @@ import { Venda } from '../pages/Venda';
 import { Register } from '../pages/Register'
 import { Perfil } from '../pages/Perfil/Perfil';
 import { AuthProvider } from '../context/auth';
+import { PrivateRoutes } from './privateRoutes';
 
 
 export const RoutesApp = () => {
@@ -22,7 +23,9 @@ export const RoutesApp = () => {
                 <Route path="/Login" element={<Login/>}/>
                 <Route path="/Registro" element={<Register/>}/>
                 <Route path="/Venda" element={<Venda/>}/>
-                <Route path="/Perfil" element={<Perfil/>}/>
+                <Route path="/Perfil" element={<PrivateRoutes/>}>
+                    <Route path="/Perfil" element={<Perfil/>}/>
+                </Route>
             </Routes>
             </AuthProvider>
     </HashRouter>

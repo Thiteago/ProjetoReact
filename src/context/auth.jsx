@@ -19,7 +19,6 @@ export const AuthProvider = ({ children }) => {
       const storageUser = JSON.parse(localStorage.getItem('@Auth:user'));
       const storageToken = JSON.parse(localStorage.getItem('@Auth:token'));
 
-      console.log(storageUser)
 
       if (storageUser && storageToken) {
         setUser(storageUser);
@@ -37,7 +36,6 @@ export const AuthProvider = ({ children }) => {
     if (response.data.error) {
       return 'erro';
     } else {
-      console.log(response.data.user)
       setUser(response.data.user);
       api.defaults.headers.common[
         'Authorization'
