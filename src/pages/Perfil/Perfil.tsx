@@ -1,17 +1,57 @@
 import { ContainerContent, MenuBar, ContentWrapper, Menu, Item, ProfileContainer, UserWrapper, ContainerImageProfile, ImageProfile, ContainerUltimoPedido, ContainerPedido, WrapperPedido, Info, Title, SectionTitle, DadosContainer, DadosWrapper, LegendaField, InputInfo, FieldSet } from "./styles"
 import foto from '../../assets/img/foto-clau.png'
 import { api } from '../../services/api';
-import {useContext, useState} from 'react'
+import {useContext, useEffect, useState} from 'react'
+import {useForm} from 'react-hook-form'
 import {AuthContext} from '../../context/auth'
+import { ButtonSubmit } from "../../components/IdeiaQuestion/ideiaquestionStyle";
+import { useNavigate } from "react-router";
+
+interface User {
+    id: number;
+    nome: string;
+    dataNascimento: string,
+    email: string,
+    cpf: string,
+    rua: string,
+    numeroRua: number,
+    bairro: string,
+    cidade: string,
+    cep: string,
+    numeroTel: string,
+    numeroCel: string
+}
 
 export function Perfil(){
     const [select, setSelect] = useState('Perfil')
-    const {user} = useContext(AuthContext)
+    const history = useNavigate();
+    const {register, handleSubmit} = useForm();
+    const [localUser , setLocaluser] = useState<User>({
+        id: 1, nome: 'default', dataNascimento: '00-00-0000', email: 'default', cpf: 'default', rua: 'default', numeroRua: 1, bairro: 'default', cidade: 'default', cep: 'default', numeroCel: 'default', numeroTel: 'default' 
+    })
+    const {user, signed} = useContext(AuthContext)
 
-    const getUser = async () => {
-        const response = await api.get(`/Usuarios/${user.id}/dados`)
+    const number = Number(1)
+
+    if(typeof(user.id) != typeof(number)){
+        history("/Login")
     }
 
+    useEffect(() => {
+        api.get(`/Usuarios/${user.id}/dados`).then(response => {
+            setLocaluser(response.data)
+        })
+    }, [])
+    
+
+    const dataNasc = new Date(localUser.dataNascimento)
+
+    const handleUpdateUser = (e) =>{
+        const data = e;
+        console.log(data)
+    }
+
+    
     const Perfil = () => {
         return(
             <ProfileContainer>
@@ -60,27 +100,31 @@ export function Perfil(){
             <h1>Seus Dados</h1>
 
             <DadosWrapper>
-                <FieldSet className="w-75 border p-2 d-flex flex-column">
-                    <LegendaField className="w-auto">Nome Completo *</LegendaField>
-                    <InputInfo type="text" placeholder="Fulano"/>
-                </FieldSet>
-                <FieldSet className="w-75 border p-2 d-flex flex-column">
-                    <LegendaField>Email / Login *</LegendaField>
-                    <InputInfo type="text" placeholder="fulano@gmail.com"/>
-                </FieldSet>
-                <FieldSet className="w-75 border p-2 d-flex flex-column">
-                    <LegendaField>CPF *</LegendaField>
-                    <InputInfo type="text" placeholder="655.989.211-12"/>
-                </FieldSet>
-                <FieldSet className="w-75 border p-2 d-flex flex-column">
-                    <LegendaField>Data de Nascimento *</LegendaField>
-                    <InputInfo type="text" placeholder="27/12/1998"/>
-                </FieldSet>
-                <FieldSet className="w-75 border p-2 d-flex flex-column">
-                    <LegendaField>Telefone celular *</LegendaField>
-                    <InputInfo type="text" placeholder="(12) 997431974"/>
-                </FieldSet>
+                <form onSubmit={handleSubmit(handleUpdateUser)} >
+                    <FieldSet className="w-75 border p-2 d-flex flex-column">
+                        <LegendaField className="w-auto" >Nome Completo *</LegendaField>
+                        <InputInfo readOnly type="text" {...register("nome")} placeholder={localUser.nome}/>
+                    </FieldSet>
+                    <FieldSet className="w-75 border p-2 d-flex flex-column">
+                        <LegendaField className="w-auto">Email / Login *</LegendaField>
+                        <InputInfo type="text" {...register("email")} placeholder={localUser.email}/>
+                    </FieldSet>
+                    <FieldSet className="w-75 border p-2 d-flex flex-column">
+                        <LegendaField className="w-auto" readOnly>CPF *</LegendaField>
+                        <InputInfo type="text" {...register("cpf")} placeholder={localUser.cpf}/>
+                    </FieldSet>
+                    <FieldSet className="w-75 border p-2 d-flex flex-column">
+                        <LegendaField className="w-auto" readOnly>Data de Nascimento *</LegendaField>
+                        <InputInfo type="text" {...register("dataNascimento")} placeholder={dataNasc.toDateString()}/>
+                    </FieldSet>
+                    <FieldSet className="w-75 border p-2 d-flex flex-column">
+                        <LegendaField className="w-auto">Telefone celular *</LegendaField>
+                        <InputInfo type="text" {...register("numeroCel")} placeholder={localUser.numeroCel}/>
+                    </FieldSet>
+                    <ButtonSubmit type='submit'>Alterar</ButtonSubmit>
+                </form>
             </DadosWrapper>
+            
         </DadosContainer>
         )
     }
@@ -98,8 +142,6 @@ export function Perfil(){
             return(Pagamento())
         }
     }
-
-
 
     return (
         <>

@@ -7,11 +7,13 @@ import { Login } from '../pages/Login';
 import { Venda } from '../pages/Venda';
 import { Register } from '../pages/Register'
 import { Perfil } from '../pages/Perfil/Perfil';
+import { AuthProvider } from '../context/auth';
 
 
 export const RoutesApp = () => {
     return(
         <HashRouter>
+            <AuthProvider>
             <Routes>
                 <Route path="/" element={<Home/>}/>
                 <Route path="/Produtos" element={<Produtos/>}/>
@@ -22,6 +24,7 @@ export const RoutesApp = () => {
                 <Route path="/Venda" element={<Venda/>}/>
                 <Route path="/Perfil" element={<Perfil/>}/>
             </Routes>
+            </AuthProvider>
     </HashRouter>
     )
 }

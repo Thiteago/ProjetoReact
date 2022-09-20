@@ -5,7 +5,10 @@ import PropTypes from 'prop-types';
 export const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState();
+
+  
+
   const logOut = () => {
     localStorage.clear();
     setUser(null);
@@ -13,8 +16,10 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     const loadingStorageData = async () => {
-      const storageUser = localStorage.getItem('@Auth: user');
-      const storageToken = localStorage.getItem('@Auth: token');
+      const storageUser = JSON.parse(localStorage.getItem('@Auth:user'));
+      const storageToken = JSON.parse(localStorage.getItem('@Auth:token'));
+
+      console.log(storageUser)
 
       if (storageUser && storageToken) {
         setUser(storageUser);
@@ -23,16 +28,16 @@ export const AuthProvider = ({ children }) => {
     loadingStorageData();
   }, []);
 
-  const login = async (email, senha, id) => {
+  const login = async (email, senha) => {
     const response = await api.post('/Autenticar', {
       email,
-      senha,
-      id
+      senha
     });
 
     if (response.data.error) {
       return 'erro';
     } else {
+      console.log(response.data.user)
       setUser(response.data.user);
       api.defaults.headers.common[
         'Authorization'

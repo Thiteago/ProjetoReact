@@ -29,7 +29,8 @@ const SairBTN = styled(Link)`
 export function Header(props:HeaderProps){
     const logo = useRef<HTMLImageElement>(null);
     const {signed, user, logOut} = useContext(AuthContext)
- 
+    
+    console.log(user)
 
     function handleClick(e){
         logOut();

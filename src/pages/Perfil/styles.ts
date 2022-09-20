@@ -51,6 +51,7 @@ export const InputInfo = styled.input`
 ` 
 
 export const DadosWrapper = styled.div`
+    margin-bottom: 15px;
 `
 
 export const ContainerPedido = styled.div`
