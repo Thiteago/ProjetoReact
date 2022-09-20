@@ -11,6 +11,9 @@ export const ContainerContent = styled.div`
 
 export const MenuBar = styled.aside`
     width: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
     background-color: #e8e8e8;
 
 `
@@ -49,6 +52,16 @@ export const LegendaField = styled.legend`
 export const InputInfo = styled.input`
     width: 450px;
 ` 
+export const ReturnButton = styled.span`
+    padding-left: 15px;
+    margin-top: 25px;
+
+    &:hover{
+        background: grey;
+        color: white;
+        cursor: pointer;
+    }
+`
 
 export const DadosWrapper = styled.div`
     margin-bottom: 15px;
