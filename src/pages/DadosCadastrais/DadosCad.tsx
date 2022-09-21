@@ -1,5 +1,5 @@
 import { ButtonSubmit } from "../../components/IdeiaQuestion/ideiaquestionStyle";
-import { DadosContainer, DadosWrapper, FieldSet, InputInfo, LegendaField } from "../Perfil/styles";
+import { DadosContainer, DadosWrapper, FieldSet, InputInfo, LegendaField } from "./styles";
 import { api } from '../../services/api';
 import {AuthContext} from '../../context/auth'
 import { useForm } from "react-hook-form";

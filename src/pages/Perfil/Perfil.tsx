@@ -1,9 +1,10 @@
-import { ContainerContent, MenuBar, ContentWrapper, Menu, Item, ProfileContainer, UserWrapper, ContainerImageProfile, ImageProfile, ContainerUltimoPedido, ContainerPedido, WrapperPedido, Info, Title, SectionTitle, DadosContainer, DadosWrapper, LegendaField, InputInfo, FieldSet, ReturnButton } from "./styles"
+import { ContainerContent, MenuBar, ContentWrapper, Menu, Item, ProfileContainer, UserWrapper, ContainerImageProfile, ImageProfile, ContainerUltimoPedido, ContainerPedido, WrapperPedido, Info, Title, SectionTitle, ReturnButton } from "./styles"
 import foto from '../../assets/img/foto-clau.png'
 import {useContext, useState} from 'react'
 import {AuthContext} from '../../context/auth'
 import { useNavigate } from "react-router";
 import { DadosCad } from "../DadosCadastrais/DadosCad";
+import { ProdutosAdmin } from "../ProdutosAdmin";
 
 
 
@@ -56,17 +57,15 @@ export function Perfil(){
         )
     }
     
-    const Pagamento = () => {
-        return(<div>pag</div>)
-    }
+
 
     function changePage(){
         if(select == 'Perfil'){
             return(Perfil())
         }else if(select == 'Dados Cadastrais'){
             return(<DadosCad/>)
-        }else if(select == 'Pagamento'){
-            return(Pagamento())
+        }else if(select == 'Produtos'){
+            return(<ProdutosAdmin/>)
         }
     }
 

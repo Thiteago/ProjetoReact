@@ -12,12 +12,12 @@
     "@types/jest": "^26.0.15",
     "@types/node": "^12.0.0",
     "axios": "^0.27.2",
-    "framer-motion": "^4.1.17",
+    "baseui": "^12.1.2",
     "homepage": ".",
     "lesshat": "^4.1.0",
     "node-sass": "^6.0.1",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-hook-form": "^7.34.2",
     "react-input-mask": "^2.0.4",
     "react-moment": "^1.1.2",
@@ -27,6 +27,8 @@
     "react-scroll": "^1.8.7",
     "react-transition-group": "^4.4.2",
     "styled-components": "^5.3.5",
+    "styletron-engine-atomic": "^1.5.0",
+    "styletron-react": "^6.1.0",
     "typescript": "^4.1.2",
     "web-vitals": "^1.0.1",
     "yup": "^0.32.11"
@@ -59,7 +61,7 @@
     ]
   },
   "devDependencies": {
-    "@types/react": "^18.0.17",
+    "@types/react": "^18.0.20",
     "@types/react-dom": "^18.0.6",
     "@types/react-router-dom": "^5.1.8",
     "@types/react-transition-group": "^4.4.2",
