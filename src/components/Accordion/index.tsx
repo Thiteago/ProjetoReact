@@ -23,25 +23,42 @@ export function AccordionComponent(){
     const today = new Date().toLocaleDateString('en-ca')
 
     const changeHandler = (event) => {
-		setSelectedFile(event.target.files[0]);
+        let number = 0
+        while(number < event.target.files.length){
+            setSelectedFile(event.target.files[number])
+            
+            number++
+        }
+        console.log(event.target.files.length)
+        
+		console.log(selectedFile)
 	};
 
-    const handleImages = (e) => {
-        const formData = new FormData();
-        formData.append('file', selectedFile)
-
-        api.post('/Upload', formData, {
-            headers: {
-              'Content-Type': 'multipart/form-data'
-            }
-        }).then((response) => {
-            alert('enviou com sucesso')
-        })
-    }
 
     const handleProdutoSave = (e) => {
-        const data = e;
-        api.post('/Produto/Cadastrar', data).then((response) => {
+        const data = e
+        
+        const formData = new FormData();
+        for (let i = 0; i < selectedFile.length; i++) {
+            formData.append('file[]', selectedFile[i])
+          }
+        formData.append('nome', data.nome)
+        formData.append('descricao', data.descricao)
+        formData.append('dataCriacao', data.dataCriacao)
+        formData.append('tipo', data.tipo)
+        formData.append('valor', data.tipo)
+        formData.append('altura', data.altura)
+        formData.append('largura', data.largura)
+        formData.append('comprimento', data.comprimento)
+        formData.append('material', data.material)
+        formData.append('categoria', data.categoria)
+
+
+        api.post('/Produto/Cadastrar', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+              }
+        }).then((response) => {
             if(response.status == 201){
                 setResult({variant: 'success', title: 'Produto cadastrado com sucesso'})
             }
@@ -58,7 +75,7 @@ export function AccordionComponent(){
             <Accordion.Item eventKey="0">
                 <Accordion.Header>Cadastrar</Accordion.Header>
                     <Accordion.Body>
-                        <form onSubmit={handleSubmit(handleProdutoSave)}>
+                        <form encType='multipart/file-data' onSubmit={handleSubmit(handleProdutoSave)}>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Label>Nome</Form.Label>
                             <Form.Control {...register("nome")} required type="text" placeholder="Nome do Produto" />
@@ -96,8 +113,8 @@ export function AccordionComponent(){
                             <Form.Label>Tipo</Form.Label>
                             <Form.Select {...register("tipo")} required aria-label="Default select example">
                                 <option>Selecione o Tipo de negociação</option>
-                                <option value="1">Venda</option>
-                                <option value="2">Aluguel</option>
+                                <option value="Venda">Venda</option>
+                                <option value="Aluguel">Aluguel</option>
                             </Form.Select>
                         </Form.Group>
 
@@ -141,29 +158,13 @@ export function AccordionComponent(){
                             Informe o tipo de material do produto
                             </Form.Text>
                         </Form.Group>
-
-                        <Modal show={show} onHide={handleClose}>
-                            <Modal.Header closeButton>
-                            <Modal.Title>Inserir Imagens</Modal.Title>
-                            </Modal.Header>
-                            <Modal.Body>
-                                <p>Insira as imagens do produto (Maximo 5)</p>
-                                <form onSubmit={handleImages} encType='multipart/file-data'>
-                                    <Form.Group controlId="formFileMultiple" className="mb-3">
-                                        <Form.Control onChange={changeHandler} name='file' type="file" multiple />
-                                    </Form.Group>
-                                    <Button variant="primary" type={'submit'}>Enviar</Button>
-                                </form>
-                            </Modal.Body>
-                            <Modal.Footer>
-                                <Button variant="secondary" onClick={handleClose}>
-                                    Fechar
-                                </Button>
-                            </Modal.Footer>
-                        </Modal>
+                        <Form.Group controlId="formFileMultiple" className="mb-3">
+                            <Form.Label>Imagens</Form.Label>
+                            <Form.Control onChange={changeHandler} name='file' type="file" multiple />
+                        </Form.Group>
+                       
                         <ContainerButtons>
                             <Button variant="dark" type={'submit'}>Cadastrar</Button>
-                            <Button variant="dark" onClick={handleShow}>Inserir imagens</Button>
                         </ContainerButtons>
                         {<Alert style={{marginTop: '15px'}} variant={result.variant}>{result.title}</Alert>}
                         </form>
