@@ -6,7 +6,6 @@ import mande from "../assets/img/mande_sua_ideia.png";
 import { IdeiaQuestion } from '../components/IdeiaQuestion/ideiaquestion';
 import { AuthContext } from '../context/auth';
 import styled from "styled-components"
-import { Answer } from '../components/IdeiaQuestion/ideiaquestionStyle';
 
 
 const Aviso = styled.h1`
