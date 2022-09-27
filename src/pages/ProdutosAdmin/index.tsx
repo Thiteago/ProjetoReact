@@ -1,6 +1,6 @@
 import { ContentContainer } from "./styles";
 
-import { AccordionComponent } from "../../components/Accordion";
+import { AccordionComponent } from "../../components/ProdutoController";
 
 
 export function ProdutosAdmin(){

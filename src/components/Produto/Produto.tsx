@@ -3,7 +3,16 @@ import avatar from '../../assets/img/cliente-av-fit.png'
 import cifrao from '../../assets/icons/cifrao.svg'
 import {Link} from 'react-router-dom';
 
-export function Produto(){
+interface ProdutoProps{
+    title: string,
+    description: string,
+    type: string,
+    buttonType: string,
+    image: string
+}
+
+
+export function Produto(props: ProdutoProps){
     return(
     <div className='wrapper-produto'>
         <div className='icon-produto'>
@@ -11,8 +20,8 @@ export function Produto(){
         </div>
         <div className='info-produto'>
             <div className='descricao-produto'>
-                <h1>Nome produto</h1>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit quasi non labore repudiandae mollitia voluptates culpa ipsam natus quae tenetur excepturi repellat vel temporibus harum, tempora optio maxime eaque alias.</p>
+                <h1>{props.title}</h1>
+                <p>{props.description}</p>
             </div>
             <div className="wrapper-additional-info">
                 <div className='container-situation'>
@@ -20,11 +29,11 @@ export function Produto(){
                         <img src={cifrao} alt="#" />
                     </div>
                     <div className='situation'>
-                        <p>Aluguel</p>
+                        <p>{props.type}</p>
                     </div>
                 </div>
                 <div className='buy-button'>
-                    <Link to={"/Venda"}><button className="botao">Alugar</button></Link>
+                    <Link to={"/Venda"}><button className="botao">{props.buttonType}</button></Link>
                 </div>
             </div>
         </div>

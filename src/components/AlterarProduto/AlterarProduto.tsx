@@ -1,7 +1,7 @@
 import {useForm} from 'react-hook-form'
 import Form from 'react-bootstrap/Form';
 import { useEffect, useState } from 'react';
-import { ContainerButtons } from '../Accordion/style';
+import { ContainerButtons } from '../ProdutoController/style';
 import Button from 'react-bootstrap/Button';
 import Alert from 'react-bootstrap/Alert';
 import { api } from '../../services/api';
