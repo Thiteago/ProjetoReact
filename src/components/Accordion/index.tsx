@@ -6,7 +6,6 @@ import { useEffect, useState } from 'react';
 import { api } from '../../services/api';
 import Alert from 'react-bootstrap/Alert';
 import { ContainerButtons } from './style';
-import InputGroup from 'react-bootstrap/InputGroup';
 import { AlterarProduto } from '../AlterarProduto/AlterarProduto';
 import { Produto } from '../Produto/Produto';
 
@@ -27,7 +26,6 @@ interface Produto{
 
 export function AccordionComponent(){
     const {register, handleSubmit} = useForm();
-    const [optionState, setOptionState] = useState({value: ''});
     const [result, setResult] = useState({
         variant: '', title: ''
     })
@@ -62,6 +60,23 @@ export function AccordionComponent(){
         getProdutos()
     }, [])
 
+    const obj = {
+        id: selected.id,
+        nome: selected.nome,
+        descricao: selected.descricao,
+        altura: selected.altura,
+        categoria: selected.categoria,
+        comprimento: selected.comprimento,
+        dataCriacao: selected.dataCriacao,
+        imagens: selected.imagens,
+        largura: selected.largura,
+        material: selected.material,
+        tipo: selected.tipo,
+        valor: selected.valor
+    }
+
+
+
     const changeHandler = (event) => {
         setSelectedFile(event.target.files)
 	};
@@ -71,14 +86,16 @@ export function AccordionComponent(){
             const prod : Produto[] = response.data.produtos
 
             prod.forEach((item) => {
-                setProduto(prevProduto => [
-                    ...prevProduto,
-                    {id: item.id, nome: item.nome, descricao: item.descricao, 
-                    dataCriacao: item.dataCriacao, tipo: item.tipo, valor: item.valor, 
-                    altura: item.altura, largura: item.largura, comprimento: item.comprimento,
-                    material: item.material, categoria: item.categoria, imagens: item.imagens
+                if(produto.length == 1){
+                    setProduto(prevProduto => [
+                        ...prevProduto,
+                        {id: item.id, nome: item.nome, descricao: item.descricao, 
+                        dataCriacao: item.dataCriacao, tipo: item.tipo, valor: item.valor, 
+                        altura: item.altura, largura: item.largura, comprimento: item.comprimento,
+                        material: item.material, categoria: item.categoria, imagens: item.imagens
+                    }
+                    ])
                 }
-                ])
             })            
         })
     }
@@ -238,16 +255,6 @@ export function AccordionComponent(){
                     <Accordion.Body>
                         <form>
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Informe o Código do Produto</Form.Label>
-                            <InputGroup className="mb-3">
-                                <Form.Control
-                                placeholder="Ex: 121"
-                                />
-                                <Button variant="outline-secondary" id="button-addon2">
-                                    Alterar
-                                </Button>
-                            </InputGroup>
-                            <Form.Label>Ou</Form.Label>
                             <Form.Select onChange={handleSelectChange} aria-label="Default select example">
                                 <option>Selecione um Produto</option>
                                 {produto.map((item) => {
@@ -259,7 +266,7 @@ export function AccordionComponent(){
                         </Form.Group>
                         </form>
                         {select ? 
-                            <AlterarProduto id={selected.id} nome={selected.nome} descricao={selected.descricao} altura={selected.altura} categoria={selected.categoria} comprimento={selected.comprimento} dataCriacao={selected.dataCriacao} imagens={selected.imagens} largura={selected.largura} material={selected.material} tipo={selected.tipo} valor={selected.valor}/>
+                            <AlterarProduto {...obj}/>
                             :
                             <></>
                         }
@@ -269,4 +276,6 @@ export function AccordionComponent(){
     </Accordion>
     )
 }
+
+
 

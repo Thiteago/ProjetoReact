@@ -1,4 +1,3 @@
-import React, { useEffect } from "react";
 import { RefObject, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import gravatar from "../../assets/img/gravatar-sorrindo.png";
@@ -72,7 +71,7 @@ export function IdeiaQuestion({ideiaReference,tipo, titulo,opcao1, opcao2, child
                 {count <= 10 ? (
                     <p>Precisamos de mais informações, por favor, fale mais sobre o produto!</p>
                 ) : (
-                    <ButtonSubmit onClick={function(event){verificarText(); childToParent({titulo}, texto.current?.value, 'inputText')}}>Enviar</ButtonSubmit>
+                    <ButtonSubmit onClick={function(){verificarText(); childToParent({titulo}, texto.current?.value, 'inputText')}}>Enviar</ButtonSubmit>
                 )}
                 
             </form>
@@ -96,7 +95,7 @@ export function IdeiaQuestion({ideiaReference,tipo, titulo,opcao1, opcao2, child
                 } 
                  required></InputAnswer>
                 {valid ? 
-                <ButtonSubmit onClick={function(event){childToParent({titulo}, data.current?.value, 'prazo')}}>Enviar</ButtonSubmit> 
+                <ButtonSubmit onClick={function(){childToParent({titulo}, data.current?.value, 'prazo')}}>Enviar</ButtonSubmit> 
                 :
                 <span>A data informada deve ser posterior ao dia de hoje</span>
                 }
@@ -104,7 +103,7 @@ export function IdeiaQuestion({ideiaReference,tipo, titulo,opcao1, opcao2, child
         </WrapperInputAnswer>
     }else if(tipo == 'submit'){
         
-        question = <ButtonSubmit onClick={function(event){
+        question = <ButtonSubmit onClick={function(){
             alert('Ideia enviada com sucesso! Assim que possível iremos entrar em contato'), 
             navigate('/'), redirecionar()}}>Enviar</ButtonSubmit>
     
@@ -146,7 +145,7 @@ export function IdeiaQuestion({ideiaReference,tipo, titulo,opcao1, opcao2, child
         question = 
         <>
             <WrapperAnswer>
-            {items.filter(item=> item.selected === true).map((item, i) => {
+            {items.filter(item=> item.selected === true).map((item) => {
                 return(
                     <ContainerOptions key={item.id}>
                         <span key={item.id}>{item.title}</span>

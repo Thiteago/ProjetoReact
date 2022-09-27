@@ -30,7 +30,7 @@ export function Header(props:HeaderProps){
     const logo = useRef<HTMLImageElement>(null);
     const {signed, user, logOut} = useContext(AuthContext)
 
-    function handleClick(e){
+    function handleClick(){
         logOut();
     }
 

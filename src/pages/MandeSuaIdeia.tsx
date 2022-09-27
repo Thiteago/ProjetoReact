@@ -2,7 +2,7 @@ import {useRef, useEffect, useContext, useState} from 'react';
 import { Header } from "../components/Header/Header";
 import "../styles/mandesuaideia.scss"
 import background from "../assets/img/background.png"
-import mande from "../assets/img/mande_sua_ideia.png";
+// import mande from "../assets/img/mande_sua_ideia.png";
 import { IdeiaQuestion } from '../components/IdeiaQuestion/ideiaquestion';
 import { AuthContext } from '../context/auth';
 import styled from "styled-components"
