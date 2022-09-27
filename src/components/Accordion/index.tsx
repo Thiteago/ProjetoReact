@@ -1,8 +1,9 @@
 import Accordion from 'react-bootstrap/Accordion';
+import Modal from 'react-bootstrap/Modal';
 import {useForm} from 'react-hook-form'
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { api } from '../../services/api';
 import Alert from 'react-bootstrap/Alert';
 import { ContainerButtons } from './style';
@@ -29,6 +30,7 @@ export function AccordionComponent(){
     const [result, setResult] = useState({
         variant: '', title: ''
     })
+    const selectRef = useRef<HTMLSelectElement>(null)
     const [selectedFile, setSelectedFile] = useState<FileList[]>([]);
     const [select, setSelect] = useState(false)
     const [selected, setSelected] = useState({id: 0, nome: '',descricao:'' ,dataCriacao: '',
@@ -51,6 +53,39 @@ export function AccordionComponent(){
     imagens: []}])
 
     const today = new Date().toLocaleDateString('en-ca')
+    const [show, setShow] = useState(false);
+
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+    const handleDelete = (e) => {
+        if(selectRef.current != null){
+            const item = selectRef.current.options.selectedIndex
+            const el = selectRef.current.children
+            const id = el[item].id
+
+            api.delete(`/Produto/${id}/Deletar`).then((response) => {
+                if(response.status == 201){
+                    setShow(false)
+                    setResult({variant: 'success', title: 'Produto excluído com sucesso!'})
+                    getProdutos()
+                    selectRef.current?.remove(item)
+                    
+                }
+            }).catch((error) => {
+                if(error.response.status == 400){
+                    setResult({variant: 'danger', title: 'Erro ao Excluir o Produto!'})
+                }
+            })
+            
+            
+        }
+        
+
+
+        // setShow(false)
+    }
+
 
     useEffect(() => {
         console.log()
@@ -272,6 +307,41 @@ export function AccordionComponent(){
                         }
                         
                     </Accordion.Body>
+            </Accordion.Item>
+
+            <Accordion.Item eventKey="2">
+                <Accordion.Header>Excluir</Accordion.Header>
+                <Accordion.Body>
+                <form>
+                        <Form.Group className="mb-3" controlId="formBasicEmail">
+                            <Form.Select ref={selectRef} onChange={handleSelectChange} aria-label="Default select example">
+                                <option>Selecione um Produto</option>
+                                {produto.map((item) => {
+                                    return(
+                                        <option id={String(item.id)} key={item.id}>{item.nome}</option>
+                                    )
+                                })}
+                                <Alert variant={result.variant}>{result.title}</Alert>
+                            </Form.Select>
+                        </Form.Group>
+                        <Button variant="primary" onClick={handleShow}>Excluir</Button>
+                        {<Alert style={{marginTop: '15px'}} variant={result.variant}>{result.title}</Alert>}
+                        <Modal show={show} onHide={handleClose}>
+                            <Modal.Header closeButton>
+                            <Modal.Title>Excluir Produto</Modal.Title>
+                            </Modal.Header>
+                            <Modal.Body>Voce tem certeza que deseja excluir o produto <b>{selectRef.current?.value}?</b></Modal.Body>
+                            <Modal.Footer>
+                            <Button variant="secondary" onClick={handleClose}>
+                                Fechar
+                            </Button>
+                            <Button variant="danger" onClick={handleDelete}>
+                                Excluir
+                            </Button>
+                            </Modal.Footer>
+                        </Modal>
+                        </form>
+                </Accordion.Body>
             </Accordion.Item>
     </Accordion>
     )

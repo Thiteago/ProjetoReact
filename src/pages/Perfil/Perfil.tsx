@@ -86,6 +86,7 @@ export function Perfil(){
                     <Item onClick={() => {setSelect('Relatórios')}}>Relatórios</Item>
                     <Item onClick={() => {setSelect('Estoque')}}>Estoque</Item>
                     <Item onClick={() => {setSelect('Permissoes')}}>Permissões</Item>
+                    <Item onClick={() => {setSelect('Usuarios do Sistema')}}>Usuarios Administrativos</Item>
                     </> : <></>}
                 </Menu>
             </MenuBar>
