@@ -1,11 +1,13 @@
 import {Header} from '../components/Header/Header'
 import {Footer} from '../components/Footer/Footer'
 import img from '../assets/img/cliente-av-fit.png'
+import "react-responsive-carousel/lib/styles/carousel.min.css";
 import '../styles/Venda.scss'
 import { useLocation } from 'react-router-dom'
 import { api } from '../services/api'
 import { useEffect, useState } from 'react'
 import PreviousButton from '../components/PreviousButton/PreviousButton'
+import { Carousel } from 'react-responsive-carousel';
 
 
 interface Produto{
@@ -28,9 +30,11 @@ export function Venda(){
     const location = useLocation()
     const idLocation = location.state
     const [state, setState] = useState<Produto>()
+    const [images, setImages] = useState<string[]>([])
 
     useEffect(() => {
         getInfo(Number(idLocation))
+        getImages()
     }, [])
 
     const getInfo = (id: number) => {
@@ -52,6 +56,12 @@ export function Venda(){
         })
     }
 
+    const getImages = () => {
+        api.get(`/Produto/ImagePath/${idLocation}`).then((response) => {
+            setImages(response.data.caminhos)
+        })
+    }
+
     return(
         <div>
             <Header tamanho='pequeno'></Header>
@@ -60,16 +70,13 @@ export function Venda(){
                     <PreviousButton endereco={'/Produtos'}></PreviousButton>
                     <div className='wrapper-info'>
                         <aside className='imagem-produto'>
-                            <div className='imagem-principal'>
-                                <img src={img} alt="" />
-                            </div>
-                            <div className='carrossel-imagem'>
-                                <div className='img-small'><img src={img} alt="" /></div>
-                                <div className='img-small'><img src={img} alt="" /></div>
-                                <div className='img-small'><img src={img} alt="" /></div>
-                                <div className='img-small'><img src={img} alt="" /></div>
-                            </div>
-                            
+                                <Carousel dynamicHeight={true}>
+                                    {images.map((item) => {
+                                        return(
+                                            <img key={item} src={`http://localhost:3333/static/${item}`}></img>
+                                        )
+                                    })}
+                                </Carousel>
                         </aside>
                         <div className='info-produto'>
                             <div className="wrapper-title">
