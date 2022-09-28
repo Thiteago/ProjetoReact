@@ -18,9 +18,10 @@ interface ProdutoProps{
 
 export function Produto(props: ProdutoProps){
     const [image, setImage] = useState()
+    const id = props.id
 
     const getImages = () => {
-        api.get(`/Produto/ImagePath/${props.id}`).then((response) => {
+        api.get(`/Produto/ImagePath/${id}`).then((response) => {
             setImage(response.data.caminhos[0])
         })
     }
@@ -49,7 +50,7 @@ export function Produto(props: ProdutoProps){
                     </div>
                 </div>
                 <div className='buy-button'>
-                    <Link to={"/Venda"}><button className="botao">{props.buttonType == 'Venda' ? 'Comprar' : 'Alugar'}</button></Link>
+                    <Link to="/Venda" state={ id }><button className="botao">{props.buttonType == 'Venda' ? 'Comprar' : 'Alugar'}</button></Link>
                 </div>
             </div>
         </div>
