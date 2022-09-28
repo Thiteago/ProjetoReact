@@ -18,6 +18,8 @@ interface Produto{
 export function Produtos(){
     const [produto, setProduto] = useState<Produto[]>([{id:0, nome:'',descricao:'',tipo:'',valor: 0,imagens: ''}])
 
+
+
     function getProdutos(){
         api.get("/Produto").then((response) => {
             const prod : Produto[] = response.data.produtos
@@ -40,7 +42,6 @@ export function Produtos(){
         setProduto(produto.slice(1))
     }
 
-    console.log(produto)
     useEffect(() => {
         getProdutos()
     }, [])
@@ -69,7 +70,7 @@ export function Produtos(){
                     <div className="container-produtos">
                         {produto.map((item) => {
                             return(
-                                <Produto key={item.id} title={item.nome} description={item.descricao} type={item.tipo} buttonType={item.tipo} image={item.imagens}></Produto>
+                                <Produto key={item.id} id={item.id} title={item.nome} description={item.descricao} type={item.tipo} buttonType={item.tipo} image={item.imagens}></Produto>
                             )
                         })}
                     </div>

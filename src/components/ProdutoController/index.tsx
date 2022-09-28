@@ -58,7 +58,7 @@ export function AccordionComponent(){
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
-    const handleDelete = (e) => {
+    const handleDelete = () => {
         if(selectRef.current != null){
             const item = selectRef.current.options.selectedIndex
             const el = selectRef.current.children

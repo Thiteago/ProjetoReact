@@ -2,8 +2,11 @@ import '../Produto/produto.scss';
 import avatar from '../../assets/img/cliente-av-fit.png'
 import cifrao from '../../assets/icons/cifrao.svg'
 import {Link} from 'react-router-dom';
+import { api } from '../../services/api';
+import { useEffect, useState } from 'react';
 
 interface ProdutoProps{
+    id: number,
     title: string,
     description: string,
     type: string,
@@ -12,11 +15,24 @@ interface ProdutoProps{
 }
 
 
+
 export function Produto(props: ProdutoProps){
+    const [image, setImage] = useState()
+
+    const getImages = () => {
+        api.get(`/Produto/ImagePath/${props.id}`).then((response) => {
+            setImage(response.data.caminhos[0])
+        })
+    }
+
+    useEffect(() => {
+        getImages()
+    }, [])
+
     return(
     <div className='wrapper-produto'>
         <div className='icon-produto'>
-            <img src={avatar} alt="" />
+            <img src={`http://localhost:3333/static/${image}`} alt="" />
         </div>
         <div className='info-produto'>
             <div className='descricao-produto'>
@@ -33,7 +49,7 @@ export function Produto(props: ProdutoProps){
                     </div>
                 </div>
                 <div className='buy-button'>
-                    <Link to={"/Venda"}><button className="botao">{props.buttonType}</button></Link>
+                    <Link to={"/Venda"}><button className="botao">{props.buttonType == 'Venda' ? 'Comprar' : 'Alugar'}</button></Link>
                 </div>
             </div>
         </div>
