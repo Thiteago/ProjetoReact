@@ -88,7 +88,7 @@ export function AccordionComponent(){
 
 
     useEffect(() => {
-        console.log()
+        selectedFile
     }, [selectedFile])
 
     useEffect(() => {
@@ -181,6 +181,8 @@ export function AccordionComponent(){
                 setResult({variant: 'danger', title: 'Erro ao cadastrar o produto'})
             }
         })
+
+    
     }
 
 
@@ -292,9 +294,10 @@ export function AccordionComponent(){
                         <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Select onChange={handleSelectChange} aria-label="Default select example">
                                 <option>Selecione um Produto</option>
+                                
                                 {produto.map((item) => {
                                     return(
-                                        <option key={item.id}>{item.nome}</option>
+                                        <option key={item.nome}>{item.nome}</option>
                                     )
                                 })}
                             </Form.Select>

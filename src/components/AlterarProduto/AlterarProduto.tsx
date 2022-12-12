@@ -60,13 +60,11 @@ export function AlterarProduto(props: ProdutoProps){
         })
     }, [props])
 
-    console.log(state)
     console.log(props)
 
 
-
     useEffect(() => {
-        console.log()
+        selectedFile
     }, [selectedFile])
 
 
