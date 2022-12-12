@@ -1,8 +1,3 @@
-
-import {Card} from '../Cards/Card';
-
-
-
 export function Promocoes(){
     return (
         <>
