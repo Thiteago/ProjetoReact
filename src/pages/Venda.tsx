@@ -1,6 +1,5 @@
 import {Header} from '../components/Header/Header'
 import {Footer} from '../components/Footer/Footer'
-import img from '../assets/img/cliente-av-fit.png'
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import '../styles/Venda.scss'
 import { useLocation } from 'react-router-dom'
