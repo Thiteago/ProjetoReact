@@ -16,7 +16,7 @@
     "bootstrap": "^5.2.1",
     "homepage": ".",
     "lesshat": "^4.1.0",
-    "node-sass": "^6.0.1",
+    "node-sass": "^8.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
@@ -37,7 +37,7 @@
     "yup": "^0.32.11"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start": "react-scripts --openssl-legacy-provider start",
     "dev": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
