@@ -53,28 +53,29 @@ export function Header(props:HeaderProps){
         <header className="main-header">
             <img ref={logo} src="" alt="logo clau prado"/>
             <nav className="nav">
-                <Link to={"/#"}><a href="javascript:void(0)" className="main-action">Inicio</a></Link>
-                <Link to={"/Produtos"}><a className="main-action">Produtos</a></Link>
-                <Link to={"/MandeSuaIdeia"}><a className="main-action">Mande sua Ideia</a></Link>
-                <Link to={"/Sobre"}><a className="main-action">Sobre</a></Link>
+                <Link to={"/#"}>Inicio</Link>
+                <Link to={"/Produtos"}>Produtos</Link>
+                <Link to={"/MandeSuaIdeia"}>Mande sua Ideia</Link>
+                <Link to={"/Sobre"}>Sobre</Link>
             </nav>
             
             <div className="wrapper-login">
-                <Link to={"/Login"}><a className="main-action -second">Login</a></Link>
-                <Link to={"/Login"}><a className="main-action -third">ou Cadastre-se</a></Link>
+                <Link to={"/Login"}>Login</Link>
+                <Link to={"/Login"}>ou Cadastre-se</Link>
                 <img src={avatar} alt="imagem para cadastro" height="105" className="img_avatar"/>
             </div>
         </header>
     );}
     else{
         return(
+            <>
             <header className="main-header">
             <img ref={logo} src="" alt="logo clau prado"/>
             <nav className="nav">
-                <Link to={"/#"}><a href="javascript:void(0)" className="main-action">Inicio</a></Link>
-                <Link to={"/Produtos"}><a className="main-action">Produtos</a></Link>
-                <Link to={"/MandeSuaIdeia"}><a className="main-action">Mande sua Ideia</a></Link>
-                <Link to={"/Sobre"}><a className="main-action">Sobre</a></Link>
+                <Link to={"/#"}>Inicio</Link>
+                <Link to={"/Produtos"}>Produtos</Link>
+                <Link to={"/MandeSuaIdeia"}>Mande sua Ideia</Link>
+                <Link to={"/Sobre"}>Sobre</Link>
             </nav>
             
             <div className="wrapper-login -logado">
@@ -85,6 +86,7 @@ export function Header(props:HeaderProps){
                 </ContainerOptionsProfile>
             </div>
         </header>
+        </>
         )
     }
 }

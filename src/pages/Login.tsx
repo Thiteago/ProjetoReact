@@ -45,7 +45,7 @@ export function Login() {
                             <input className="input" value={email} onChange={(e) => setEmail(e.target.value)} type="email" placeholder="Email" />
                             <input className="input" value={senha} onChange={(e) => setSenha(e.target.value)} type="password" placeholder="Senha" />
                             <p ref={message} style={{color: 'red', display: 'none'}}>Credenciais Inválidas</p>
-                            <a className="a" href="#">Esqueceu a senha?</a>
+                            <a className="a" href="/#">Esqueceu a senha?</a>
                             <button className="button">Login</button>
                         </form>
                     </div>
