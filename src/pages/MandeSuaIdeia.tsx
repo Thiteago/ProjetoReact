@@ -43,6 +43,7 @@ export function MandeSuaIdeia(){
         tipo: 'alternativa'
     });
     
+    //eslint-disable-next-line
     const [answer, setAnswers] = useState<Question[]>([])
 
     const childToParent = (per, res, typ) => {
