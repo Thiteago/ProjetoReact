@@ -60,7 +60,6 @@ export function AlterarProduto(props: ProdutoProps){
         })
     }, [props])
 
-    console.log(props)
 
 
     useEffect(() => {
