@@ -26,6 +26,15 @@ interface Produto{
 }
 
 export function AccordionComponent(){
+    const initialProductState = {id: 0, nome: '',descricao:'' ,dataCriacao: '',
+    tipo: '',
+    valor: 0,
+    altura: '',
+    largura: '',
+    comprimento: '',
+    material: '',
+    categoria: '',
+    imagens: []}
     const {register, handleSubmit} = useForm();
     const [result, setResult] = useState({
         variant: '', title: ''
@@ -81,9 +90,6 @@ export function AccordionComponent(){
             
         }
         
-
-
-        // setShow(false)
     }
 
 
@@ -91,9 +97,6 @@ export function AccordionComponent(){
         selectedFile
     }, [selectedFile])
 
-    useEffect(() => {
-        getProdutos()
-    }, [])
 
     const obj = {
         id: selected.id,
@@ -117,18 +120,18 @@ export function AccordionComponent(){
 	};
 
     const getProdutos = () => {
+        setProduto([initialProductState])
         api.get("/Produto").then((response)=> {
             const prod : Produto[] = response.data.produtos
-
+            console.log(prod)
             prod.forEach((item) => {
-                if(produto.length == 1){
+                if(produto.length >= 1){
                     setProduto(prevProduto => [
                         ...prevProduto,
                         {id: item.id, nome: item.nome, descricao: item.descricao, 
                         dataCriacao: item.dataCriacao, tipo: item.tipo, valor: item.valor, 
                         altura: item.altura, largura: item.largura, comprimento: item.comprimento,
-                        material: item.material, categoria: item.categoria, imagens: item.imagens
-                    }
+                        material: item.material, categoria: item.categoria, imagens: item.imagens}
                     ])
                 }
             })            
@@ -181,8 +184,6 @@ export function AccordionComponent(){
                 setResult({variant: 'danger', title: 'Erro ao cadastrar o produto'})
             }
         })
-
-    
     }
 
 
@@ -287,11 +288,11 @@ export function AccordionComponent(){
                     </Accordion.Body>
             </Accordion.Item>
 
+            
             <Accordion.Item eventKey="1">
-                <Accordion.Header>Alterar</Accordion.Header>
+                <Accordion.Header onClick={() => getProdutos()}>Alterar</Accordion.Header>
                     <Accordion.Body>
                         <form>
-                        <Form.Group className="mb-3" controlId="formBasicEmail">
                             <Form.Select onChange={handleSelectChange} aria-label="Default select example">
                                 <option>Selecione um Produto</option>
                                 
@@ -301,7 +302,6 @@ export function AccordionComponent(){
                                     )
                                 })}
                             </Form.Select>
-                        </Form.Group>
                         </form>
                         {select ? 
                             <AlterarProduto {...obj}/>
@@ -324,8 +324,8 @@ export function AccordionComponent(){
                                         <option id={String(item.id)} key={item.id}>{item.nome}</option>
                                     )
                                 })}
-                                <Alert variant={result.variant}>{result.title}</Alert>
                             </Form.Select>
+                        <Alert variant={result.variant}>{result.title}</Alert>
                         </Form.Group>
                         <Button variant="primary" onClick={handleShow}>Excluir</Button>
                         {<Alert style={{marginTop: '15px'}} variant={result.variant}>{result.title}</Alert>}
