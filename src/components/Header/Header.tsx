@@ -53,15 +53,15 @@ export function Header(props:HeaderProps){
         <header className="main-header">
             <img ref={logo} src="" alt="logo clau prado"/>
             <nav className="nav">
-                <Link to={"/#"}>Inicio</Link>
-                <Link to={"/Produtos"}>Produtos</Link>
-                <Link to={"/MandeSuaIdeia"}>Mande sua Ideia</Link>
-                <Link to={"/Sobre"}>Sobre</Link>
+                <Link className="main-action" to={"/#"}>Inicio</Link>
+                <Link className="main-action" to={"/Produtos"}>Produtos</Link>
+                <Link className="main-action" to={"/MandeSuaIdeia"}>Mande sua Ideia</Link>
+                <Link className="main-action" to={"/Sobre"}>Sobre</Link>
             </nav>
             
             <div className="wrapper-login">
-                <Link to={"/Login"}>Login</Link>
-                <Link to={"/Login"}>ou Cadastre-se</Link>
+                <Link className="main-action -second" to={"/Login"}>Login</Link>
+                <Link className="main-action -third" to={"/Login"}>ou Cadastre-se</Link>
                 <img src={avatar} alt="imagem para cadastro" height="105" className="img_avatar"/>
             </div>
         </header>
@@ -72,10 +72,10 @@ export function Header(props:HeaderProps){
             <header className="main-header">
             <img ref={logo} src="" alt="logo clau prado"/>
             <nav className="nav">
-                <Link to={"/#"}>Inicio</Link>
-                <Link to={"/Produtos"}>Produtos</Link>
-                <Link to={"/MandeSuaIdeia"}>Mande sua Ideia</Link>
-                <Link to={"/Sobre"}>Sobre</Link>
+                <Link className="main-action" to={"/#"}>Inicio</Link>
+                <Link className="main-action" to={"/Produtos"}>Produtos</Link>
+                <Link className="main-action" to={"/MandeSuaIdeia"}>Mande sua Ideia</Link>
+                <Link className="main-action" to={"/Sobre"}>Sobre</Link>
             </nav>
             
             <div className="wrapper-login -logado">
